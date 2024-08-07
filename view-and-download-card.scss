@@ -1,0 +1,65 @@
+.view-and-download-card {
+    padding: 2.5rem 2rem 2rem;
+    background-color: $baselineSecondaryLight;
+    max-width: 34.167rem;
+    min-height: 17.875rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: $secondaryFont;
+
+    .view-and-download-description  {
+        max-width: fit-content;
+
+        .views-and-downloads-nums {
+            display: flex;
+            column-gap: 2rem;
+            margin-bottom: 1.5rem;
+
+            .v-and-d-text {
+                margin: 0;
+            }
+
+            .v-and-d-views-nums {
+                display: flex;
+                column-gap: .5rem;
+                align-items: center;
+
+                .v-and-d-view-icon {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                }
+            }
+
+            .v-and-d-downloads-nums {
+                display: flex;
+                column-gap: .5rem;
+                align-items: center;
+
+                .v-and-d-download-gold-icon {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                }
+            }
+        }
+        
+        .v-and-d-readmore-btn {
+            display: flex;
+            column-gap: .5rem;
+
+            .v-and-d-readmore-link {
+                padding: .67rem 1.5rem;
+                align-content: center;
+            }
+
+            .v-and-d-download-btn {
+
+                .v-and-d-download-icon {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                }
+            }
+        }
+    }
+}
