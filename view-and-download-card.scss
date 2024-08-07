@@ -47,19 +47,80 @@
         .v-and-d-readmore-btn {
             display: flex;
             column-gap: .5rem;
+            // position: relative;
 
             .v-and-d-readmore-link {
                 padding: .67rem 1.5rem;
                 align-content: center;
             }
 
-            .v-and-d-download-btn {
+            .v-and-d-dropdown{
+                .v-and-d-download-btn {
+                    border: .063rem solid #fff;
+                    transition: all .35s ease;
+                    min-height: 2.875rem;
+                    min-width: 2.875rem;
+                    
+                    .v-and-d-download-icon {
+                        height: 0.875rem;
+                        width: 0.875rem;
+                    }
+    
+                    &:hover {
+                        border: .063rem solid #9f8332;
+                        transition: all .35s ease;
+                    }
+                }
+    
+                .v-and-d-dropdown-menu {
+                    position: absolute;
+                    margin-top: .5rem;
+                    border: .06rem solid $secondarySemiLight;
+                    border-radius: .5rem;
+                    min-width: 12.125rem;
+                    background-color: $white;
+                    height: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    overflow: hidden;
+                    transition: all .35s ease;
 
-                .v-and-d-download-icon {
-                    height: 1.5rem;
-                    width: 1.5rem;
+                    &.v-and-d-dropdown-active {
+                        opacity: 1;
+                        visibility: visible;
+                        overflow: hidden;
+                        z-index: 99;
+                    }
+                    
+                    ul {
+
+                        li {
+                            padding: 0.938rem 1rem;
+
+                            &:first-of-type {
+                                border-radius: .5rem .5rem 0 0;
+                                background-color: $baselineSecondaryLight;
+                            }
+
+                            &:last-of-type {
+                                border-radius: 0 0 .5rem .5rem;
+                            }
+
+                            a {
+                                color: inherit;
+                            }
+
+                            &:not(:first-of-type){
+                                 
+                                &:hover {
+                                    background-color: $secondarySimiLight;
+                                }
+                            }
+                        }
+                    }
                 }
             }
+
         }
     }
 }
