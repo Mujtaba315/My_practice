@@ -1,126 +1,140 @@
-.view-and-download-card {
-    padding: 2.5rem 2rem 2rem;
-    background-color: $baselineSecondaryLight;
-    max-width: 34.167rem;
-    min-height: 17.875rem;
-    border-radius: 1rem;
+.view-and-download-cards{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: $secondaryFont;
+    flex-wrap: wrap;
+    margin: 0 6.875rem;
+    
+    .view-and-download-card-wrapper {
+        flex: 1 1 33.333%;
+        padding: 1rem .625rem;
 
-    .view-and-download-description  {
-        max-width: fit-content;
-
-        .views-and-downloads-nums {
+        .view-and-download-card {
+            padding: 2.5rem 2rem 2rem;
+            background-color: $baselineSecondaryLight;
+            border-radius: 1rem;
             display: flex;
-            column-gap: 2rem;
-            margin-bottom: 1.5rem;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: $secondaryFont;
+            height: 100%;
 
-            .v-and-d-text {
-                margin: 0;
+            .view-and-download-heading {
+                padding: 0 0 5.25rem;
             }
-
-            .v-and-d-views-nums {
-                display: flex;
-                column-gap: .5rem;
-                align-items: center;
-
-                .v-and-d-view-icon {
-                    height: 1.5rem;
-                    width: 1.5rem;
-                }
-            }
-
-            .v-and-d-downloads-nums {
-                display: flex;
-                column-gap: .5rem;
-                align-items: center;
-
-                .v-and-d-download-gold-icon {
-                    height: 1.5rem;
-                    width: 1.5rem;
-                }
-            }
-        }
         
-        .v-and-d-readmore-btn {
-            display: flex;
-            column-gap: .5rem;
-            // position: relative;
-
-            .v-and-d-readmore-link {
-                padding: .67rem 1.5rem;
-                align-content: center;
-            }
-
-            .v-and-d-dropdown{
-                .v-and-d-download-btn {
-                    border: .063rem solid #fff;
-                    transition: all .35s ease;
-                    min-height: 2.875rem;
-                    min-width: 2.875rem;
-                    
-                    .v-and-d-download-icon {
-                        height: 0.875rem;
-                        width: 0.875rem;
+            .view-and-download-description  {
+                max-width: fit-content;
+        
+                .views-and-downloads-nums {
+                    display: flex;
+                    column-gap: 2rem;
+                    margin-bottom: 1.5rem;
+        
+                    .v-and-d-text {
+                        margin: 0;
                     }
-    
-                    &:hover {
-                        border: .063rem solid #9f8332;
-                        transition: all .35s ease;
+        
+                    .v-and-d-views-nums {
+                        display: flex;
+                        column-gap: .5rem;
+                        align-items: center;
+        
+                        .v-and-d-view-icon {
+                            height: 1.5rem;
+                            width: 1.5rem;
+                        }
+                    }
+        
+                    .v-and-d-downloads-nums {
+                        display: flex;
+                        column-gap: .5rem;
+                        align-items: center;
+        
+                        .v-and-d-download-gold-icon {
+                            height: 1.5rem;
+                            width: 1.5rem;
+                        }
                     }
                 }
-    
-                .v-and-d-dropdown-menu {
-                    position: absolute;
-                    margin-top: .5rem;
-                    border: .06rem solid $secondarySemiLight;
-                    border-radius: .5rem;
-                    min-width: 12.125rem;
-                    background-color: $white;
-                    height: 0;
-                    opacity: 0;
-                    visibility: hidden;
-                    overflow: hidden;
-                    transition: all .35s ease;
-
-                    &.v-and-d-dropdown-active {
-                        opacity: 1;
-                        visibility: visible;
-                        overflow: hidden;
-                        z-index: 99;
+                
+                .v-and-d-readmore-btn {
+                    display: flex;
+                    column-gap: .5rem;
+                    // position: relative;
+        
+                    .v-and-d-readmore-link {
+                        padding: .67rem 1.5rem;
+                        align-content: center;
                     }
-                    
-                    ul {
-
-                        li {
-                            padding: 0.938rem 1rem;
-
-                            &:first-of-type {
-                                border-radius: .5rem .5rem 0 0;
-                                background-color: $baselineSecondaryLight;
+        
+                    .v-and-d-dropdown{
+                        .v-and-d-download-btn {
+                            border: .063rem solid #fff;
+                            transition: all .35s ease;
+                            min-height: 2.875rem;
+                            min-width: 2.875rem;
+                            
+                            .v-and-d-download-icon {
+                                height: 0.875rem;
+                                width: 0.875rem;
                             }
-
-                            &:last-of-type {
-                                border-radius: 0 0 .5rem .5rem;
+            
+                            &:hover {
+                                border: .063rem solid #9f8332;
+                                transition: all .35s ease;
                             }
-
-                            a {
-                                color: inherit;
+                        }
+            
+                        .v-and-d-dropdown-menu {
+                            position: absolute;
+                            margin-top: .5rem;
+                            border: .06rem solid $secondarySemiLight;
+                            border-radius: .5rem;
+                            min-width: 12.125rem;
+                            background-color: $white;
+                            height: 0;
+                            opacity: 0;
+                            visibility: hidden;
+                            overflow: hidden;
+                            transition: all .35s ease;
+        
+                            &.v-and-d-dropdown-active {
+                                opacity: 1;
+                                visibility: visible;
+                                overflow: hidden;
+                                z-index: 99;
                             }
-
-                            &:not(:first-of-type){
-                                 
-                                &:hover {
-                                    background-color: $secondarySimiLight;
+                            
+                            ul {
+        
+                                li {
+                                    padding: 0.938rem 1rem;
+        
+                                    &:first-of-type {
+                                        border-radius: .5rem .5rem 0 0;
+                                        background-color: $baselineSecondaryLight;
+                                    }
+        
+                                    &:last-of-type {
+                                        border-radius: 0 0 .5rem .5rem;
+                                    }
+        
+                                    a {
+                                        color: inherit;
+                                    }
+        
+                                    &:not(:first-of-type){
+                                         
+                                        &:hover {
+                                            background-color: $secondarySimiLight;
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
+        
                 }
             }
-
         }
     }
 }
