@@ -70,12 +70,14 @@
                         .v-and-d-download-btn {
                             border: .063rem solid #fff;
                             transition: all .35s ease;
-                            min-height: 2.875rem;
-                            min-width: 2.875rem;
+                            height: 2.875rem;
+                            width: 2.875rem;
                             
                             .v-and-d-download-icon {
-                                height: 0.875rem;
-                                width: 0.875rem;
+                                max-height: .875rem;
+                                max-width: .875rem;
+                                min-height: .875rem;
+                                min-width: .875rem;
                             }
             
                             &:hover {
@@ -107,7 +109,6 @@
                             ul {
         
                                 li {
-                                    padding: 0.938rem 1rem;
         
                                     &:first-of-type {
                                         border-radius: .5rem .5rem 0 0;
@@ -120,6 +121,9 @@
         
                                     a {
                                         color: inherit;
+                                        display: inline-block;
+                                        width: 100%;
+                                        padding: .938rem 1rem;
                                     }
         
                                     &:not(:first-of-type){
@@ -133,6 +137,43 @@
                         }
                     }
         
+                }
+            }
+        }
+    }
+}
+
+@media ($vpTablet991) {
+    .view-and-download-cards {
+        .view-and-download-card-wrapper {
+            flex: 1 1 50%;
+        }
+    }
+}
+
+@media ($vpMobile600) {
+    .view-and-download-cards {
+        margin: 0 1rem;
+        .view-and-download-card-wrapper {
+            flex: 1 1 100%;
+
+            .view-and-download-card {
+
+                .view-and-download-heading {
+                    padding: 0 0 2.5rem;
+                }
+
+                .view-and-download-description {
+
+                    .v-and-d-readmore-btn {
+
+                        .v-and-d-dropdown {
+
+                            .v-and-d-dropdown-menu {
+                                min-width: 9.125rem;
+                            }
+                        }
+                    }
                 }
             }
         }
