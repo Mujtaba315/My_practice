@@ -8,11 +8,15 @@
     margin: 0 -.625rem;
     
     .view-and-download-card-wrapper {
-        padding: 1rem .625rem;
+        // padding: 1rem .625rem;
+        margin: 1rem .625rem;
         flex: 1 1 33.333%;
         flex-grow: 0;
-        // width: calc(33.333% - 2.5rem);
-        width: 33.333%;
+        width: calc(33.333% - 1.25rem);
+        // width: 33.333%;
+        display: flex;
+        flex-direction: column;
+        // height: 100%;
 
         .view-and-download-card {
             padding: 2.5rem 2rem 2rem;
@@ -155,7 +159,8 @@
         .view-and-download-card-wrapper {
             flex: 1 1 50%;
             flex-grow: 0;
-            width: 50%;
+            // width: 50%;
+            width: calc(50% - 1.25rem);
         }
     }
 }
@@ -165,7 +170,8 @@
         margin: 0 1rem;
         .view-and-download-card-wrapper {
             flex: 1 1 100%;
-            width: 100%;
+            // width: 100%;
+            width: calc(100% - 1.25rem);
 
             .view-and-download-card {
 

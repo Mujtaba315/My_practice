@@ -5797,20 +5797,56 @@ function openCloseVAndDDropdown() {
 // cards isotopes
 
 function cardsIsotopes() {
+  
   // init Isotope
   var $grid = $('.js-data-library .grid').isotope({
   itemSelector: '.view-and-download-card-wrapper',
-  layoutMode: 'fitRows',
-  percentPosition: true,
+  layoutMode: 'masonry',
+  // percentPosition: true,
   // fitRows: {
-  //   gutter: 20
+  //   // gutter: 20
+  //   equalheight: true
   // },
   masonry: {
     columnWidth: '.view-and-download-card-wrapper' 
   }
   });
 
-  $grid.isotope({ filter: '*' });
+  //$grid.isotope({ filter: '*' });
+
+  // Ensure correct initial layout and equalize heights
+  function initLayout() {
+    $grid.isotope('layout');
+    equalizeHeights();
+  }
+
+  // Equalize heights
+  function equalizeHeights() {
+    var $items = $('.js-data-library .view-and-download-card-wrapper');
+
+    // Reset height
+    $items.height('auto');
+
+    // Calculate the max height
+    var maxHeight = 0;
+    $items.each(function() {
+      var itemHeight = $(this).outerHeight();
+      if (itemHeight > maxHeight) {
+        maxHeight = itemHeight;
+      }
+    });
+
+    // Set all items to max height
+    $items.height(maxHeight);
+  }
+
+  // Call equalizeHeights after Isotope layout is complete
+  $grid.on('layoutComplete', function() {
+    equalizeHeights();
+  });
+
+  // Trigger initial layout
+  initLayout();
 
   $('.js-data-library .filter-button-group').on('click', 'button', function(){
     var filterValue = $(this).attr('data-filter');
@@ -5820,5 +5856,13 @@ function cardsIsotopes() {
   // Re-layout on window resize
   $(window).on('resize', function() {
     $grid.isotope('layout');
+    equalizeHeights();
+  });
+
+  //equalizeHeights();
+  
+  // Ensure layout is correct when the page loads
+  $(document).ready(function() {
+    initLayout();
   });
 }
