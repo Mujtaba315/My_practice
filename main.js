@@ -910,6 +910,9 @@ $(document).ready(function () {
 
   // calling cards isotopes function
   cardsIsotopes();
+
+  // calling cards-btn slick slider
+  cardSlickSlider();
 });
 
 function intlTelInputInit() {
@@ -5881,5 +5884,14 @@ function cardsIsotopes() {
   // Ensure layout is correct when the page loads
   $(document).ready(function() {
     initLayout();
+  });
+}
+
+function cardSlickSlider () {
+  $('.js-data-library .multiple-items').slick({
+    arrows: true,
+    infinite: false,
+    slidesToShow: 4.5,
+    slidesToScroll: 1
   });
 }
