@@ -5802,9 +5802,9 @@ function cardsIsotopes() {
   itemSelector: '.view-and-download-card-wrapper',
   layoutMode: 'fitRows',
   percentPosition: true,
-  fitRows: {
-    gutter: 20
-  },
+  // fitRows: {
+  //   gutter: 20
+  // },
   masonry: {
     columnWidth: '.view-and-download-card-wrapper' 
   }
