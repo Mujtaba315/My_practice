@@ -5822,27 +5822,39 @@ function cardsIsotopes() {
 
   // Equalize heights
   function equalizeHeights() {
-    var $items = $('.js-data-library .view-and-download-card-wrapper');
+    if ( $(window).width()>600 ) {
+      
+      var $items = $('.js-data-library .view-and-download-card-wrapper');
 
-    // Reset height
-    $items.height('auto');
+      // Reset height
+      $items.height('auto');
 
-    // Calculate the max height
-    var maxHeight = 0;
-    $items.each(function() {
-      var itemHeight = $(this).outerHeight();
-      if (itemHeight > maxHeight) {
-        maxHeight = itemHeight;
-      }
-    });
+      // Calculate the max height
+      var maxHeight = 0;
+      $items.each(function() {
+        var itemHeight = $(this).outerHeight();
+        if (itemHeight > maxHeight) {
+          maxHeight = itemHeight;
+        }
 
-    // Set all items to max height
-    $items.height(maxHeight);
+      });
+
+      // Set all items to max height
+      $items.height(maxHeight);
+      $('.view-and-download-card').height('inherit');
+    } else {
+      $('.js-data-library .view-and-download-card-wrapper').height('auto');
+      $('.view-and-download-card').height('inherit');
+    }
   }
 
   // Call equalizeHeights after Isotope layout is complete
   $grid.on('layoutComplete', function() {
     equalizeHeights();
+    // Ensure layout is correct when the page loads
+    $(document).ready(function() {
+      initLayout();
+    });
   });
 
   // Trigger initial layout
@@ -5857,6 +5869,11 @@ function cardsIsotopes() {
   $(window).on('resize', function() {
     $grid.isotope('layout');
     equalizeHeights();
+    // Ensure layout is correct when the page loads
+    $(document).ready(function() {
+      initLayout();
+    });
+    
   });
 
   //equalizeHeights();
