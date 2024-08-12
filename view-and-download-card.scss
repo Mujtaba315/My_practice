@@ -23,7 +23,7 @@
                 line-height: normal;
                 max-height: 4.563rem;
                 // max-width: -moz-fit-content;
-                max-width: fit-content !important;
+                //max-width: fit-content !important;
                 padding: 1.688rem 1.938rem;
                 transition: all .4s ease;
                 outline: none;
@@ -287,6 +287,25 @@
     }
     
     @media ($vpMobile600) {
+
+        .cards-category-btns {
+            max-width: 50%;
+
+            .btns-wrapper {
+                overflow: scroll;
+                padding-bottom: 1rem;
+
+                .category-btn {
+                    white-space: nowrap;
+                    padding: 1rem 1.5rem;
+                }
+            }
+
+            .prev-next-btns {
+                display: none;
+            }
+        }
+    
         .view-and-download-cards {
             margin: 0 1rem;
             .view-and-download-card-wrapper {
