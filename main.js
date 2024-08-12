@@ -5888,20 +5888,54 @@ function cardsIsotopes() {
 }
 
 function cardSlickSlider () {
-  $('.js-data-library .js-button-wrapper').slick({
-    arrows: false,
+  $('.js-data-library .js-btns-wrapper').slick({
+    arrows: true,
     infinite: false,
     slidesToShow: 4.5,
     slidesToScroll: 1,
     variableWidth: true,
+    responsive:[
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 601,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
   });
   
-  $('.js-next-btn').click(function () {
-    $('.js-button-wrapper').slick("slickNext");
-  });
-
-  $('.js-data-library .js-button-wrapper .js-category-btn').click(function () {
-    $('.js-data-library .js-button-wrapper .js-category-btn').removeClass('active-category-btn');
+  
+  $('.js-data-library .js-btns-wrapper .js-category-btn').click(function () {
+    $('.js-data-library .js-btns-wrapper .js-category-btn').removeClass('active-category-btn');
     $(this).addClass('active-category-btn');
   });
 }
+
+$('.js-prev-btn').click(function () {
+  $('.js-btns-wrapper').slick("slickPrev");
+});
+
+$('.js-next-btn').click(function () {
+  $('.js-btns-wrapper').slick("slickNext");
+});
+
+$(".js-prev-btn").addClass("prev-btn-disable");
+
+$(".js-data-library .js-btns-wrapper").on("afterChange", function () {
+  if ($(".js-data-library .slick-prev").hasClass("slick-disabled")) {
+    $(".js-prev-btn").addClass("prev-btn-disable");
+  } else {
+    $(".js-prev-btn").removeClass("prev-btn-disable");
+  }
+  if ($(".js-data-library .slick-next").hasClass("slick-disabled")) {
+    $(".js-next-btn").addClass("next-btn-disable");
+  } else {
+    $(".js-next-btn").removeClass("next-btn-disable");
+  }
+});

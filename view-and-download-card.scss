@@ -7,6 +7,11 @@
         .btns-wrapper {
             display: flex;
 
+            .slick-prev,
+            .slick-next {
+                display: none !important;
+            }
+
             .category-btn{
                 background-color: transparent;
                 border: .063rem solid $secondarySemiLight;
@@ -50,21 +55,58 @@
 
         .prev-next-btns {
 
-            .next-btn {
+            .prev-btn {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                right: 0;
-                background-color: #fff;
+                left: 0;
+                background-color: $white;
                 border: .06rem solid $baselinePrimary;
                 height: 2.875rem;
                 width: 2.875rem;
                 border-radius: 50%;
-                transition: all .4s ease;
+                transition: all .3s ease;
                 outline: none;
 
                 &:hover {
                     background-color: $secondarySemiLight;
+                }
+
+                &.prev-btn-disable {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all .3s ease;
+                }
+
+                .prev-btn-arrow {
+                    stroke: $baselineSecondary;
+                    height: 1rem;
+                    width: 1rem;
+                    transform: rotate(180deg);
+                }
+            }
+
+            .next-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: -.06rem;
+                background-color: $white;
+                border: .06rem solid $baselinePrimary;
+                height: 2.875rem;
+                width: 2.875rem;
+                border-radius: 50%;
+                transition: all .3s ease;
+                outline: none;
+
+                &:hover {
+                    background-color: $secondarySemiLight;
+                }
+
+                &.next-btn-disable {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all .3s ease;
                 }
 
                 .next-btn-arrow {
