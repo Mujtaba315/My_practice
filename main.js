@@ -5888,11 +5888,20 @@ function cardsIsotopes() {
 }
 
 function cardSlickSlider () {
-  $('.js-data-library .multiple-items').slick({
-    arrows: true,
+  $('.js-data-library .js-button-wrapper').slick({
+    arrows: false,
     infinite: false,
     slidesToShow: 4.5,
     slidesToScroll: 1,
-    variableWidth: true
+    variableWidth: true,
+  });
+  
+  $('.js-next-btn').click(function () {
+    $('.js-button-wrapper').slick("slickNext");
+  });
+
+  $('.js-data-library .js-button-wrapper .js-category-btn').click(function () {
+    $('.js-data-library .js-button-wrapper .js-category-btn').removeClass('active-category-btn');
+    $(this).addClass('active-category-btn');
   });
 }

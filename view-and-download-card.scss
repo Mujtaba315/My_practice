@@ -1,9 +1,10 @@
 .data-library {
 
     .cards-category-btns {
+        position: relative;
+        max-width: 35.833%;
         
         .btns-wrapper {
-            max-width: 35.833%;
             display: flex;
 
             .category-btn{
@@ -18,12 +19,58 @@
                 max-height: 4.563rem;
                 // max-width: -moz-fit-content;
                 max-width: fit-content !important;
-                padding: 1.688rem 1.594rem;
+                padding: 1.688rem 1.938rem;
                 transition: all .4s ease;
                 outline: none;
 
                 &:not(:last-of-type) {
                     margin-right: 1rem;
+                }
+
+                &:hover {
+                    background-color: $secondarySemiLight;
+                }
+
+                &.active-category-btn {
+                    background-color: $secondarySemiLight;
+                    gap: .75rem;
+
+                    &::after {
+                        background-color: $baselinePrimary;
+                        border-radius: 3.125rem;
+                        content: "";
+                        display: block;
+                        height: .5rem;
+                        transition: all .4s ease;
+                        width: .5rem;
+                    }
+                }
+            }
+        }
+
+        .prev-next-btns {
+
+            .next-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 0;
+                background-color: #fff;
+                border: .06rem solid $baselinePrimary;
+                height: 2.875rem;
+                width: 2.875rem;
+                border-radius: 50%;
+                transition: all .4s ease;
+                outline: none;
+
+                &:hover {
+                    background-color: $secondarySemiLight;
+                }
+
+                .next-btn-arrow {
+                    stroke: $baselineSecondary;
+                    height: 1rem;
+                    width: 1rem;
                 }
             }
         }
