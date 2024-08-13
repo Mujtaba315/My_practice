@@ -289,7 +289,7 @@
     @media ($vpMobile600) {
 
         .cards-category-btns {
-            max-width: 50%;
+            max-width: 100%;
 
             .btns-wrapper {
                 overflow: scroll;
@@ -307,7 +307,8 @@
         }
     
         .view-and-download-cards {
-            margin: 0 1rem;
+            // margin: 0 1rem;
+
             .view-and-download-card-wrapper {
                 flex: 1 1 100%;
                 // width: 100%;
