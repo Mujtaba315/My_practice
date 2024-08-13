@@ -5,6 +5,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 2.5rem 0 1.5rem;
 
             .cards-category-btns {
                 position: relative;
@@ -214,15 +215,15 @@
                     border-radius: .5rem;
                     width: 16.804%;
 
-                    button {
+                    .view-btn {
                         width: 50%;
                         height: 100%;
-                        background: none;
+                        background: $secondarySemiLight;
                         border: none;
                         outline: none;
 
-                        &.list-view {
-                            background: $secondarySemiLight;
+                        &.active-view-btn {
+                            background: none;
                         }
 
                         svg {
@@ -241,6 +242,12 @@
     
             &:has(.v-and-d-dropdown-active){
                 overflow: visible;
+            }
+
+            &.list-view-active {
+                .view-and-download-card-wrapper {
+                    width: calc(100% - 1.25rem);
+                }
             }
             
             .view-and-download-card-wrapper {
@@ -421,6 +428,7 @@
         @media ($vpMobile600) {
 
             .cards-top-bar {
+                padding-bottom: .5rem;
 
                 .cards-category-btns {
                     max-width: 100%;

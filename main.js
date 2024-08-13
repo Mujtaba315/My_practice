@@ -913,6 +913,9 @@ $(document).ready(function () {
 
   // calling cards-btn slick slider
   cardSlickSlider();
+
+  // calling handleViewBtnClick 
+  handleViewBtnClick();
 });
 
 function intlTelInputInit() {
@@ -5887,6 +5890,8 @@ function cardsIsotopes() {
   });
 }
 
+// Cards category btns slider
+
 function cardSlickSlider () {
   let settings = {
     arrows: true,
@@ -5940,22 +5945,6 @@ function cardSlickSlider () {
     }
   });
 
-  // if ($(window).width() < 601) { 
-  //   $('.js-data-library .js-btns-wrapper').slick('unslick');
-  // } else {
-  //   $('.js-data-library .js-btns-wrapper').slick(settings);
-  // }
-
-  // $(window).on('resize', function() {
-  //   if ($(window).width() < 601) { 
-  //     $('.js-data-library .js-btns-wrapper').slick('unslick'); 
-  //     console.log('if');
-  //   } else {
-  //     $('.js-data-library .js-btns-wrapper').slick(settings);
-  //     console.log('else');
-  //   }
-  // });  
-
   if ($(window).width() < 601) { 
     if ($('.js-data-library .js-btns-wrapper').hasClass('slick-initialized')) {
       $('.js-data-library .js-btns-wrapper').slick('unslick');
@@ -5981,4 +5970,41 @@ function cardSlickSlider () {
       }
     }
   });  
+}
+
+// Handling click on view btns
+
+function handleViewBtnClick () {
+  $('.js-data-library .js-view-btn').click(function (){
+    $('.js-data-library .js-view-btn').removeClass('active-view-btn');
+    $(this).addClass('active-view-btn');
+
+    if ( $(this).hasClass('grid-view') ) {
+      $('.js-data-library .js-view-and-download-cards').removeClass('list-view-active');
+    } else {
+      $('.js-data-library .js-view-and-download-cards').addClass('list-view-active');
+    }
+    
+    // if ( $(this).hasClass('grid-view') ) {
+    //   if ( $(window).width() > 991 ){
+    //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(33.333% - 1.25rem)');
+    //   } else if ( $(window).width() > 600 ) {
+    //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(50% - 1.25rem)');
+    //   } else if ( $(window).width() < 601 ) {
+    //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(100% - 1.25rem)');
+    //   } 
+    // } else {
+    //   $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(100% - 1.25rem)');
+    // }
+  });
+
+  // $(window).on('resize', function() {
+  //   if ( $(window).width() > 991 ){
+  //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(33.333% - 1.25rem)');
+  //   } else if ( $(window).width() > 600 ) {
+  //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(50% - 1.25rem)');
+  //   } else if ( $(window).width() < 601 ) {
+  //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(100% - 1.25rem)');
+  //   } 
+  // });
 }
