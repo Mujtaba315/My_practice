@@ -1,4 +1,9 @@
 .main-cards-sec {
+
+    &:has(.v-and-d-dropdown-active){
+        overflow: visible;
+    }
+
     .data-library {
 
         .cards-top-bar {
@@ -174,6 +179,12 @@
                     justify-content: space-between;
                     padding: 1rem;
                     width: 30.905%;
+                    cursor: pointer;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        background-color: $secondarySemiLight;
+                    }
 
                     button {
                         background: none;

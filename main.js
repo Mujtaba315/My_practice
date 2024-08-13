@@ -5828,7 +5828,7 @@ function cardsIsotopes() {
 
   // Equalize heights
   function equalizeHeights() {
-    if ( $(window).width()>600 ) {
+    if ( $(window).width() > 600 ) {
       
       var $items = $('.js-data-library .view-and-download-card-wrapper');
 
@@ -5948,12 +5948,10 @@ function cardSlickSlider () {
   if ($(window).width() < 601) { 
     if ($('.js-data-library .js-btns-wrapper').hasClass('slick-initialized')) {
       $('.js-data-library .js-btns-wrapper').slick('unslick');
-      console.log('Uninitialized slick');
     }
   } else {
     if (!$('.js-data-library .js-btns-wrapper').hasClass('slick-initialized')) {
       $('.js-data-library .js-btns-wrapper').slick(settings);
-      console.log('Initialized slick');
     }
   }
 
@@ -5961,12 +5959,10 @@ function cardSlickSlider () {
     if ($(window).width() < 601) { 
       if ($('.js-data-library .js-btns-wrapper').hasClass('slick-initialized')) {
         $('.js-data-library .js-btns-wrapper').slick('unslick');
-        console.log('Uninitialized slick');
       }
     } else {
       if (!$('.js-data-library .js-btns-wrapper').hasClass('slick-initialized')) {
         $('.js-data-library .js-btns-wrapper').slick(settings);
-        console.log('Initialized slick');
       }
     }
   });  
@@ -5984,7 +5980,7 @@ function handleViewBtnClick () {
     } else {
       $('.js-data-library .js-view-and-download-cards').addClass('list-view-active');
     }
-    
+
     // if ( $(this).hasClass('grid-view') ) {
     //   if ( $(window).width() > 991 ){
     //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(33.333% - 1.25rem)');
