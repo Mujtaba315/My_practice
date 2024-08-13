@@ -439,6 +439,31 @@
                         display: none;
                     }
                 }
+
+                .search-filter {
+
+                    .search-input {
+                        height: 3.438rem;
+                        width: 73.714%;
+                    }
+
+                    .filter {
+                        height: 3.438rem;
+                        width: 20.571%;
+
+                        button {
+                            justify-content: center;
+
+                            .filter-btn-text {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .view-btns {
+                        display: none;
+                    }
+                }
             }
         
             .view-and-download-cards {
