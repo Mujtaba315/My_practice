@@ -6034,13 +6034,13 @@ function cardsSidebar () {
   let topp;
   window.onscroll = function () {
     topp = $(window).scrollTop();
-    // $('.js-cards-filter-sidebar').css('top', topp);
+    $('.js-cards-filter-sidebar').css('top', topp);
   };
   
   // opening sidebar
   $('.js-data-library .js-filter').click(function (e) {
     e.stopPropagation();
-    $('.js-cards-filter-sidebar').addClass('filter-sidebar-active').css('top', topp);
+    $('.js-cards-filter-sidebar').addClass('filter-sidebar-active');
   });
 
   // Closing sidebar on click anywhere except itself
