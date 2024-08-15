@@ -915,7 +915,7 @@ $(document).ready(function () {
   cardSlickSlider();
 
   // calling handleViewBtnClick 
-  handleViewBtnClick();
+  // handleViewBtnClick();
 
   // calling cards sidebar 
   cardsSidebar();
@@ -5858,13 +5858,13 @@ function cardsIsotopes() {
   }
 
   // Call equalizeHeights after Isotope layout is complete
-  $grid.on('layoutComplete', function() {
-    equalizeHeights();
-    // Ensure layout is correct when the page loads
-    $(document).ready(function() {
-      initLayout();
-    });
-  });
+  // $grid.on('layoutComplete', function() {
+  //   equalizeHeights();
+  //   // Ensure layout is correct when the page loads
+  //   $(document).ready(function() {
+  //     initLayout();
+  //   });
+  // });
 
   // Trigger initial layout
   initLayout();
@@ -5876,12 +5876,12 @@ function cardsIsotopes() {
 
   // Re-layout on window resize
   $(window).on('resize', function() {
-    $grid.isotope('layout');
-    equalizeHeights();
     // Ensure layout is correct when the page loads
     $(document).ready(function() {
       initLayout();
     });
+    $grid.isotope('layout');
+    equalizeHeights();
     
   });
 
@@ -5890,6 +5890,23 @@ function cardsIsotopes() {
   // Ensure layout is correct when the page loads
   $(document).ready(function() {
     initLayout();
+  });
+
+  $('.js-data-library .js-view-btn').click(function (){
+    $('.js-data-library .js-view-btn').removeClass('active-view-btn');
+    $(this).addClass('active-view-btn');
+
+    if ( $(this).hasClass('grid-view') ) {
+      $('.js-data-library .js-view-and-download-cards').removeClass('list-view-active');
+      $(document).ready(function() {
+        initLayout();
+      });
+    } else {
+      $('.js-data-library .js-view-and-download-cards').addClass('list-view-active');
+      $(document).ready(function() {
+        initLayout();
+      });
+    }
   });
 }
 
@@ -5973,16 +5990,17 @@ function cardSlickSlider () {
 
 // Handling click on view btns
 
-function handleViewBtnClick () {
-  $('.js-data-library .js-view-btn').click(function (){
-    $('.js-data-library .js-view-btn').removeClass('active-view-btn');
-    $(this).addClass('active-view-btn');
+// function handleViewBtnClick () {
+  // $('.js-data-library .js-view-btn').click(function (){
+  //   $('.js-data-library .js-view-btn').removeClass('active-view-btn');
+  //   $(this).addClass('active-view-btn');
 
-    if ( $(this).hasClass('grid-view') ) {
-      $('.js-data-library .js-view-and-download-cards').removeClass('list-view-active');
-    } else {
-      $('.js-data-library .js-view-and-download-cards').addClass('list-view-active');
-    }
+  //   if ( $(this).hasClass('grid-view') ) {
+  //     $('.js-data-library .js-view-and-download-cards').removeClass('list-view-active');
+  //   } else {
+  //     $('.js-data-library .js-view-and-download-cards').addClass('list-view-active');
+  //   }
+  // });
 
     // if ( $(this).hasClass('grid-view') ) {
     //   if ( $(window).width() > 991 ){
@@ -5995,7 +6013,7 @@ function handleViewBtnClick () {
     // } else {
     //   $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(100% - 1.25rem)');
     // }
-  });
+  
 
   // $(window).on('resize', function() {
   //   if ( $(window).width() > 991 ){
@@ -6006,21 +6024,23 @@ function handleViewBtnClick () {
   //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(100% - 1.25rem)');
   //   } 
   // });
-}
+// }
 
 // card sidebar
 
 function cardsSidebar () {
 
   // giving top to sidebar on scroll
+  let topp;
   window.onscroll = function () {
-    $('.js-cards-filter-sidebar').css('top', $(window).scrollTop());
+    topp = $(window).scrollTop();
+    // $('.js-cards-filter-sidebar').css('top', topp);
   };
   
   // opening sidebar
   $('.js-data-library .js-filter').click(function (e) {
     e.stopPropagation();
-    $('.js-cards-filter-sidebar').addClass('filter-sidebar-active');
+    $('.js-cards-filter-sidebar').addClass('filter-sidebar-active').css('top', topp);
   });
 
   // Closing sidebar on click anywhere except itself
