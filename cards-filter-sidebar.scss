@@ -78,6 +78,53 @@ body:has(.filter-sidebar-active) {
                 justify-content: center;
             }
         }
+
+        .filter-categories {
+
+            .filter-btns-wrapper{
+                display: flex;
+                flex-wrap: wrap;
+                row-gap: 1rem;
+
+                .filter-btn {
+                    background-color: transparent;
+                    border: .063rem solid $secondarySemiLight;
+                    border-radius: .25rem;
+                    color: $baselineSecondary;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    line-height: normal;
+                    max-height: 3.375rem;
+                    padding: 1.688rem 1.938rem;
+                    transition: all .4s ease;
+                    outline: none;
+    
+                    &:not(:last-of-type) {
+                        margin-right: 1rem;
+                    }
+    
+                    &:hover {
+                        background-color: $secondarySemiLight;
+                    }
+    
+                    &.active-filter-btn {
+                        background-color: $secondarySemiLight;
+                        gap: .75rem;
+    
+                        &::after {
+                            background-color: $baselinePrimary;
+                            border-radius: 3.125rem;
+                            content: "";
+                            display: block;
+                            height: .5rem;
+                            transition: all .4s ease;
+                            width: .5rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .apply-filter-btn {

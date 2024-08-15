@@ -919,6 +919,9 @@ $(document).ready(function () {
 
   // calling cards sidebar 
   cardsSidebar();
+
+  // Calling handling Filter Btn Click 
+  handlingFilterBtnClick ();
 });
 
 function intlTelInputInit() {
@@ -5892,6 +5895,8 @@ function cardsIsotopes() {
     initLayout();
   });
 
+  // Handling click on view btns
+
   $('.js-data-library .js-view-btn').click(function (){
     $('.js-data-library .js-view-btn').removeClass('active-view-btn');
     $(this).addClass('active-view-btn');
@@ -6046,6 +6051,8 @@ function cardsSidebar () {
   // Closing sidebar on click anywhere except itself
   $(document).click(function(){
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
+    $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
+    $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
   });
 
   $('.js-cards-filter-sidebar').click(function (e) {
@@ -6056,11 +6063,28 @@ function cardsSidebar () {
   $(document).keydown(function (e) {
     if (e.keyCode === 27){
       $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
+      $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
+      $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
     }
   });
 
   // Closing sidebar on clicking cross 
   $('.js-cards-filter-sidebar .js-sidebar-cross').click(function () {
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
+    $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
+    $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
+  });
+}
+
+// Handling click on filter sidebar, filter categories buttons
+
+function handlingFilterBtnClick () {
+  $('.js-cards-filter-sidebar .js-filter-btn').click(function () {
+    $(this).addClass('active-filter-btn');
+    $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
+  });
+  $('.js-cards-filter-sidebar .js-clear-filter-btn').click(function () {
+    $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
+    $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
   });
 }
