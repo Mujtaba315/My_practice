@@ -916,6 +916,9 @@ $(document).ready(function () {
 
   // calling handleViewBtnClick 
   handleViewBtnClick();
+
+  // calling cards sidebar 
+  cardsSidebar();
 });
 
 function intlTelInputInit() {
@@ -6003,4 +6006,41 @@ function handleViewBtnClick () {
   //     $('.js-data-library .view-and-download-card-wrapper').css('width', 'calc(100% - 1.25rem)');
   //   } 
   // });
+}
+
+// card sidebar
+
+function cardsSidebar () {
+
+  // giving top to sidebar on scroll
+  window.onscroll = function () {
+    $('.js-cards-filter-sidebar').css('top', $(window).scrollTop());
+  };
+  
+  // opening sidebar
+  $('.js-data-library .js-filter').click(function (e) {
+    e.stopPropagation();
+    $('.js-cards-filter-sidebar').addClass('filter-sidebar-active');
+  });
+
+  // Closing sidebar on click anywhere except itself
+  $(document).click(function(){
+    $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
+  });
+
+  $('.js-cards-filter-sidebar').click(function (e) {
+    e.stopPropagation();
+  });
+
+  // Closing sidebar on pressing escape key
+  $(document).keydown(function (e) {
+    if (e.keyCode === 27){
+      $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
+    }
+  });
+
+  // Closing sidebar on clicking cross 
+  $('.js-cards-filter-sidebar .js-sidebar-cross').click(function () {
+    $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
+  });
 }
