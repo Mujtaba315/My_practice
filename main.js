@@ -6109,6 +6109,9 @@ function handlingFilterBtnClick () {
     }
     // console.log(activeFilters);
     activeCategoryBtns = activeFilters.split(',');
+    for (let i = 0; i < activeCategoryBtns.length; i++){
+      activeCategoryBtns[i] = activeCategoryBtns[i].trimStart();
+    }
     console.log(activeCategoryBtns);
     $grid1.isotope({ filter: activeFilters});
     activeFilters = "";
@@ -6116,5 +6119,10 @@ function handlingFilterBtnClick () {
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
     $('.js-data-library .js-btns-wrapper .js-category-btn').removeClass('active-category-btn');
+    $('.js-data-library .js-btns-wrapper .js-category-btn').each(function(){
+      if ( activeCategoryBtns.includes($(this).attr('data-filter'))) {
+        $(this).addClass('active-category-btn');
+      }
+    });
   });
 }
