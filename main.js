@@ -6114,6 +6114,9 @@ function handlingFilterBtnClick () {
     }
     console.log(activeCategoryBtns);
     $grid1.isotope({ filter: activeFilters});
+    $(document).ready(function() {
+      $grid1.isotope('layout');
+    });
     activeFilters = "";
     $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );

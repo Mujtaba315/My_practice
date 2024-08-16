@@ -437,7 +437,7 @@
         @media ($vpMobile600) {
 
             .cards-top-bar {
-                padding-bottom: .5rem;
+                padding-bottom: .875rem;
 
                 .cards-category-btns {
                     max-width: 100%;
@@ -448,7 +448,11 @@
         
                         .category-btn {
                             white-space: nowrap;
-                            padding: 1rem 1.5rem;
+                            padding: .75rem 1rem;
+
+                            &.active-category-btn{
+                                padding: .75rem 1.5rem;
+                            }
                         }
                     }
         
@@ -490,6 +494,7 @@
                     flex: 1 1 100%;
                     // width: 100%;
                     width: calc(100% - 1.25rem);
+                    margin: .625rem;
         
                     .view-and-download-card {
         

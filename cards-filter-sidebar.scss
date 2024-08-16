@@ -27,6 +27,7 @@ body:has(.filter-sidebar-active) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    row-gap: 4rem;
 
     &.filter-sidebar-active {
         width: 42.084%;
@@ -131,5 +132,33 @@ body:has(.filter-sidebar-active) {
         height: 4rem;
         max-width: 100%;
         width: 100%;
+    }
+}
+
+@media ($vpMobile600) {
+    .cards-filter-sidebar {
+        padding: 7.5rem 1.25rem;
+
+        &.filter-sidebar-active {
+            width: 100%;
+            overflow: scroll;
+        }
+
+        .filter-sidebar-wrapper {
+
+            .filter-categories {
+
+                .filter-btns-wrapper {
+
+                    .filter-btn {
+                        padding: .75rem 1rem;
+
+                        &.active-filter-btn {
+                            padding: .75rem 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
