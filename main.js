@@ -5807,7 +5807,7 @@ function openCloseVAndDDropdown() {
 }
 
 // cards isotopes
-
+let $grid1;
 function cardsIsotopes() {
   
   // init Isotope
@@ -5823,6 +5823,8 @@ function cardsIsotopes() {
     columnWidth: '.view-and-download-card-wrapper' 
   }
   });
+
+  $grid1 = $grid;
 
   //$grid.isotope({ filter: '*' });
 
@@ -6053,6 +6055,7 @@ function cardsSidebar () {
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
     $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
+    activeFilters = "";
   });
 
   $('.js-cards-filter-sidebar').click(function (e) {
@@ -6065,6 +6068,7 @@ function cardsSidebar () {
       $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
       $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
       $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
+      activeFilters = "";
     }
   });
 
@@ -6073,18 +6077,44 @@ function cardsSidebar () {
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
     $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
+    activeFilters = "";
   });
 }
 
 // Handling click on filter sidebar, filter categories buttons
 
+let activeFilters = "";
+
 function handlingFilterBtnClick () {
+
+  // Filters buttons click
   $('.js-cards-filter-sidebar .js-filter-btn').click(function () {
     $(this).addClass('active-filter-btn');
+    activeFilters += $(this).attr('data-filter') + ', ';
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
   });
+
+  // Clear filter button click
   $('.js-cards-filter-sidebar .js-clear-filter-btn').click(function () {
     $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
+    activeFilters = "";
+  });
+
+  // Apply filters button click
+  let activeCategoryBtns;
+  $('.js-cards-filter-sidebar .js-apply-filter-btn').click(function () {
+    if (activeFilters[activeFilters.length-2] === ',') { 
+      activeFilters = activeFilters.slice(0, activeFilters.length-2);
+    }
+    // console.log(activeFilters);
+    activeCategoryBtns = activeFilters.split(',');
+    console.log(activeCategoryBtns);
+    $grid1.isotope({ filter: activeFilters});
+    activeFilters = "";
+    $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
+    $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
+    $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
+    $('.js-data-library .js-btns-wrapper .js-category-btn').removeClass('active-category-btn');
   });
 }
