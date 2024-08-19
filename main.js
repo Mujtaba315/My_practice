@@ -5824,9 +5824,33 @@ function cardsIsotopes() {
   }
   });
 
+  // Function to show only a specified number of items
+  function showLimitedItems(filter, limit) {
+    // Filter items
+    $grid.isotope({ filter: filter });
+
+    // Get filtered items
+    var $filteredItems = $grid.isotope('getFilteredItemElements');
+
+    // Reset visibility
+    $filteredItems.forEach(function(item) {
+      $(item).show();
+    });
+
+    // Hide items beyond the limit
+    $filteredItems.slice(limit).forEach(function(item) {
+      $(item).hide();
+    });
+
+    // Adjusting layout
+    $(document).ready(function() {
+      initLayout();
+    });
+  }
+
   $grid1 = $grid;
 
-  $grid.isotope({ filter: '*' });
+  $grid.isotope({ filter: '*' + ':nth-child(-n+9)'});
 
   // Ensure correct initial layout and equalize heights
   function initLayout() {
@@ -5876,7 +5900,7 @@ function cardsIsotopes() {
 
   $('.js-data-library .filter-button-group').on('click', 'button', function(){
     var filterValue = $(this).attr('data-filter');
-    $grid.isotope({ filter: filterValue });
+    showLimitedItems(filterValue, 9);
   });
 
   // Re-layout on window resize
@@ -5889,8 +5913,6 @@ function cardsIsotopes() {
     equalizeHeights();
     
   });
-
-  //equalizeHeights();
   
   // Ensure layout is correct when the page loads
   $(document).ready(function() {
@@ -6090,7 +6112,11 @@ function handlingFilterBtnClick () {
   // Filters buttons click
   $('.js-cards-filter-sidebar .js-filter-btn').click(function () {
     $(this).toggleClass('active-filter-btn');
-    activeFilters += $(this).attr('data-filter') + ', ';
+    if ( $(this).hasClass('active-filter-btn') ) {
+      activeFilters += $(this).attr('data-filter') + ', ';
+    } else {
+      activeFilters = activeFilters.replace($(this).attr('data-filter') + ', ', '');
+    }
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
   });
 
@@ -6101,19 +6127,42 @@ function handlingFilterBtnClick () {
     activeFilters = "";
   });
 
+  // Function to show only a specified number of items
+  function showLimitedItems(filter, limit) {
+    // Filter items
+    $grid1.isotope({ filter: filter });
+
+    // Get filtered items
+    var $filteredItems = $grid1.isotope('getFilteredItemElements');
+
+    // Reset visibility
+    $filteredItems.forEach(function(item) {
+      $(item).show();
+    });
+
+    // Hide items beyond the limit
+    $filteredItems.slice(limit).forEach(function(item) {
+      $(item).hide();
+    });
+
+    // Adjusting layout
+    $(document).ready(function() {
+      initLayout();
+    });
+  }
+
   // Apply filters button click
   let activeCategoryBtns;
   $('.js-cards-filter-sidebar .js-apply-filter-btn').click(function () {
     if (activeFilters[activeFilters.length-2] === ',') { 
       activeFilters = activeFilters.slice(0, activeFilters.length-2);
     }
-    // console.log(activeFilters);
     activeCategoryBtns = activeFilters.split(',');
     for (let i = 0; i < activeCategoryBtns.length; i++){
       activeCategoryBtns[i] = activeCategoryBtns[i].trimStart();
     }
-    console.log(activeCategoryBtns);
-    $grid1.isotope({ filter: activeFilters});
+    showLimitedItems(activeFilters, 9)
+
     $(document).ready(function() {
       $grid1.isotope('layout');
     });
