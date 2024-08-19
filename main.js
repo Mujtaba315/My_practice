@@ -6060,11 +6060,16 @@ function cardSlickSlider () {
 function cardsSidebar () {
 
   // giving top to sidebar on scroll
-  let topp;
-  window.onscroll = function () {
-    topp = $(window).scrollTop();
-    $('.js-cards-filter-sidebar').css('top', topp);
-  };
+  // let topp;
+  // window.onscroll = function () {
+  //   topp = $(window).scrollTop();
+  //   $('.js-cards-filter-sidebar').css('top', topp);
+  // };
+
+  // $(window).on('resize', function () {
+  //   topp = $(window).scrollTop();
+  //   $('.js-cards-filter-sidebar').css('top', topp);
+  // });
   
   // opening sidebar
   $('.js-data-library .js-filter').click(function (e) {

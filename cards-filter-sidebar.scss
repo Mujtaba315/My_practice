@@ -13,7 +13,8 @@ body:has(.filter-sidebar-active) {
 }
 
 .cards-filter-sidebar {
-    position: absolute;
+    position: fixed;
+    top: 0;
     right: 0;
     // height: 100vh;
     width: 0;
