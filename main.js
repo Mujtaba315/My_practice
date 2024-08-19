@@ -5826,7 +5826,7 @@ function cardsIsotopes() {
 
   $grid1 = $grid;
 
-  //$grid.isotope({ filter: '*' });
+  $grid.isotope({ filter: '*' });
 
   // Ensure correct initial layout and equalize heights
   function initLayout() {
@@ -6089,7 +6089,7 @@ function handlingFilterBtnClick () {
 
   // Filters buttons click
   $('.js-cards-filter-sidebar .js-filter-btn').click(function () {
-    $(this).addClass('active-filter-btn');
+    $(this).toggleClass('active-filter-btn');
     activeFilters += $(this).attr('data-filter') + ', ';
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
   });
