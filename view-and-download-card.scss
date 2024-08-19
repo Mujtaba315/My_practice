@@ -561,17 +561,34 @@
                     margin: .625rem;
         
                     .view-and-download-card {
+                        padding: 2rem 1.5rem 1.5rem;
         
                         .view-and-download-heading {
-                            padding: 0 0 2.5rem;
+                            padding: 0 0 3.5rem;
+
+                            h5 {
+                                &.heading5 {
+                                    font-size: 1.25rem;
+                                    line-height: 1.3;
+                                }
+                            }
                         }
         
                         .view-and-download-description {
         
                             .v-and-d-readmore-btn {
+
+                                .v-and-d-readmore-link{
+                                    padding: .4rem 1.075rem;
+                                }
         
                                 .v-and-d-dropdown {
-        
+                                    
+                                    .v-and-d-download-btn {
+                                        height: 2.25rem;
+                                        width: 2.25rem;
+                                    }
+
                                     .v-and-d-dropdown-menu {
                                         min-width: 9.125rem;
                                     }
