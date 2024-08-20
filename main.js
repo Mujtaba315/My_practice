@@ -5806,7 +5806,7 @@ function openCloseVAndDDropdown() {
   });
 }
 
-// cards isotopes
+// cards isotopes without pagination functionality
 let $grid1;
 function cardsIsotopes() {
   
@@ -5938,6 +5938,239 @@ function cardsIsotopes() {
     }
   });
 }
+
+
+// cards isotopes with incomplete pagination functionality
+// let $grid1;
+// function cardsIsotopes() {
+
+//   // Variables
+//   var itemsPerPage = 9;
+//   var currentPage = 1;
+  
+//   // init Isotope
+//   var $grid = $('.js-data-library .grid').isotope({
+//   itemSelector: '.view-and-download-card-wrapper',
+//   layoutMode: 'masonry',
+//   // percentPosition: true,
+//   // fitRows: {
+//   //   // gutter: 20
+//   //   equalheight: true
+//   // },
+//   masonry: {
+//     columnWidth: '.view-and-download-card-wrapper' 
+//   }
+//   });
+
+
+//   // // Function to show only a specified number of items
+//   // function showLimitedItems(filter, limit) {
+//   //   // Filter items
+//   //   $grid.isotope({ filter: filter });
+
+//   //   // Get filtered items
+//   //   var $filteredItems = $grid.isotope('getFilteredItemElements');
+
+//   //   // Reset visibility
+//   //   $filteredItems.forEach(function(item) {
+//   //     $(item).show();
+//   //   });
+
+//   //   // Hide items beyond the limit
+//   //   $filteredItems.slice(limit).forEach(function(item) {
+//   //     $(item).hide();
+//   //   });
+
+//   //   // Adjusting layout
+//   //   $(document).ready(function() {
+//   //     initLayout();
+//   //   });
+//   // }
+
+//   $grid1 = $grid;
+
+//   $grid.isotope({ filter: '*' + ':nth-child(-n+9)'});
+
+//   // Ensure correct initial layout and equalize heights
+//   function initLayout() {
+//     $grid.isotope('layout');
+//     equalizeHeights();
+//   }
+
+//   // Equalize heights
+//   function equalizeHeights() {
+//     if ( $(window).width() > 600 ) {
+      
+//       var $items = $('.js-data-library .view-and-download-card-wrapper');
+
+//       // Reset height
+//       $items.height('auto');
+
+//       // Calculate the max height
+//       var maxHeight = 0;
+//       $items.each(function() {
+//         var itemHeight = $(this).outerHeight();
+//         if (itemHeight > maxHeight) {
+//           maxHeight = itemHeight;
+//         }
+
+//       });
+
+//       // Set all items to max height
+//       $items.height(maxHeight);
+//       $('.view-and-download-card').height('inherit');
+//     } else {
+//       $('.js-data-library .view-and-download-card-wrapper').height('auto');
+//       $('.view-and-download-card').height('inherit');
+//     }
+//   }
+
+//   // Call equalizeHeights after Isotope layout is complete
+//   // $grid.on('layoutComplete', function() {
+//   //   equalizeHeights();
+//   //   // Ensure layout is correct when the page loads
+//   //   $(document).ready(function() {
+//   //     initLayout();
+//   //   });
+//   // });
+
+//   // Trigger initial layout
+//   initLayout();
+
+//   let filterValue1 = '*';
+//   $('.js-data-library .filter-button-group').on('click', 'button', function(){
+//     var filterValue = $(this).attr('data-filter');
+//     // showLimitedItems(filterValue, 9);
+//     filterValue1 = filterValue;
+//     //$grid.isotope({ filter: filterValue });
+//     currentPage = 1;
+//     showPaginatedItems(filterValue, currentPage);
+//   });
+
+//   // Function to show limited items per page
+//   function showPaginatedItems(filter, page) {
+//     $grid.isotope({ filter: filter });
+
+//     var $filteredItems = $grid.isotope('getFilteredItemElements');
+
+//     var start = (page - 1) * itemsPerPage;
+//     var end = page * itemsPerPage;
+
+//     $filteredItems.forEach(function(item, index) {
+//       if (index >= start && index < end) {
+//         $(item).show();
+//       } else {
+//         $(item).hide();
+//       }
+//     });
+
+//     // // Force Isotope layout
+//     // $grid.isotope('layout');
+
+//     // // Equalize heights after layout
+//     // $grid.isotope('layout').promise().done(function() {
+//     //     equalizeHeights();
+//     // });
+
+//     // initLayout();
+//     $(document).ready(function() {
+//       initLayout();
+//     });
+
+//     // Update pagination
+//     updatePagination($filteredItems.length, page);
+//   }
+
+//   // Function to update pagination controls
+//   function updatePagination(totalItems, currentPage) {
+//     var totalPages = Math.ceil(totalItems / itemsPerPage);
+//     var $paginationBox = $('#pagination-box');
+
+//     // Clear existing pagination
+//     $paginationBox.empty();
+
+//     // Previous button
+//     $paginationBox.append('<li class="custom-arrows prev ' + (currentPage === 1 ? 'disabled' : '') + '"><img src="../assets/img/icon/slider-arrow-left.svg" /></li>');
+
+//     // Page numbers
+//     for (var i = 1; i <= totalPages; i++) {
+//       $paginationBox.append('<li class="page-num body1 ' + (i === currentPage ? 'active' : '') + '">' + i + '</li>');
+//     }
+
+//     // Next button
+//     $paginationBox.append('<li class="custom-arrows next ' + (currentPage === totalPages ? 'disabled' : '') + '"><img src="../assets/img/icon/slider-arrow-right.svg" /></li>');
+//   }
+
+//   // Handle page number click
+//   $(document).on('click', '#pagination-box .page-num', function() {
+//     var page = parseInt($(this).text());
+//     if (page && page !== currentPage) {
+//       currentPage = page;
+//       showPaginatedItems(filterValue1, currentPage);
+//     }
+//   });
+
+//   // Handle Previous/Next button clicks
+//   $(document).on('click', '#pagination-box .prev', function() {
+//     if (currentPage > 1) {
+//       currentPage--;
+//       showPaginatedItems(filterValue1, currentPage);
+//     }
+//   });
+
+//   $(document).on('click', '#pagination-box .next', function() {
+//     console.log('next clicked');
+    
+//     // var totalItems = $('.js-data-library .view-and-download-card-wrapper:visible').length;
+//     var totalItems = $grid.isotope('getFilteredItemElements').length;
+//     console.log('total items: ' + totalItems);
+    
+//     var totalPages = Math.ceil(totalItems / itemsPerPage);
+//     console.log('total pages: ' + totalPages);
+    
+
+//     if (currentPage < totalPages) {
+//       currentPage++;
+//       showPaginatedItems(filterValue1, currentPage);
+//     }
+//   });
+
+//   // Re-layout on window resize
+//   $(window).on('resize', function() {
+//     // Ensure layout is correct when the page loads
+//     $(document).ready(function() {
+//       initLayout();
+//     });
+//     //$grid.isotope('layout');
+//     equalizeHeights();
+    
+//   });
+  
+//   // Ensure layout is correct when the page loads
+//   $(document).ready(function() {
+//     showPaginatedItems('*', currentPage);
+//     initLayout();
+//   });
+
+//   // Handling click on view btns
+
+//   $('.js-data-library .js-view-btn').click(function (){
+//     $('.js-data-library .js-view-btn').removeClass('active-view-btn');
+//     $(this).addClass('active-view-btn');
+
+//     if ( $(this).hasClass('grid-view') ) {
+//       $('.js-data-library .js-view-and-download-cards').removeClass('list-view-active');
+//       $(document).ready(function() {
+//         initLayout();
+//       });
+//     } else {
+//       $('.js-data-library .js-view-and-download-cards').addClass('list-view-active');
+//       $(document).ready(function() {
+//         initLayout();
+//       });
+//     }
+//   });
+// }
 
 // Cards category btns slider
 
@@ -6150,10 +6383,10 @@ function handlingFilterBtnClick () {
       $(item).hide();
     });
 
-    // Adjusting layout
-    $(document).ready(function() {
-      initLayout();
-    });
+    // // Adjusting layout
+    // $(document).ready(function() {
+    //   initLayout();
+    // });
   }
 
   // Apply filters button click
@@ -6176,6 +6409,9 @@ function handlingFilterBtnClick () {
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
     $('.js-data-library .js-btns-wrapper .js-category-btn').removeClass('active-category-btn');
+    // if (activeFilters.length === 0){
+    //   $('.js-data-library .js-btns-wrapper .js-category-btn:first-child').addClass('active-category-btn');
+    // }
     $('.js-data-library .js-btns-wrapper .js-category-btn').each(function(){
       if ( activeCategoryBtns.includes($(this).attr('data-filter'))) {
         $(this).addClass('active-category-btn');
