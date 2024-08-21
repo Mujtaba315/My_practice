@@ -6308,6 +6308,8 @@ function cardsSidebar () {
   $('.js-data-library .js-filter').click(function (e) {
     e.stopPropagation();
     $('.js-cards-filter-sidebar').addClass('filter-sidebar-active');
+    $('.js-cards-filter-sidebar .js-filter-btn.js-first-filter-btn').addClass('active-filter-btn');
+    $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
   });
 
   // Closing sidebar on click anywhere except itself
@@ -6315,7 +6317,7 @@ function cardsSidebar () {
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
     $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
-    activeFilters = "";
+    activeFilters = "*, ";
   });
 
   $('.js-cards-filter-sidebar').click(function (e) {
@@ -6328,7 +6330,7 @@ function cardsSidebar () {
       $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
       $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
       $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
-      activeFilters = "";
+      activeFilters = "*, ";
     }
   });
 
@@ -6337,13 +6339,13 @@ function cardsSidebar () {
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
     $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
-    activeFilters = "";
+    activeFilters = "*, ";
   });
 }
 
 // Handling click on filter sidebar, filter categories buttons
 
-let activeFilters = "";
+let activeFilters = "*, ";
 
 function handlingFilterBtnClick () {
 
@@ -6404,14 +6406,18 @@ function handlingFilterBtnClick () {
     $(document).ready(function() {
       $grid1.isotope('layout');
     });
-    activeFilters = "";
+    console.log(activeCategoryBtns.length , activeCategoryBtns, activeCategoryBtns[0].length);
+    $('.js-data-library .js-btns-wrapper .js-category-btn').removeClass('active-category-btn');
+    if (activeCategoryBtns[0].length === 0){
+      console.log('1st btn');
+      console.log($('.js-data-library .js-btns-wrapper .js-category-btn.js-first-category-btn').html());
+      $('.js-data-library .js-btns-wrapper .js-category-btn.js-first-category-btn').addClass('active-category-btn');
+    }
+    activeFilters = "*, ";
     $('.js-cards-filter-sidebar .js-filter-btn').removeClass('active-filter-btn');
     $('.js-cards-filter-sidebar .js-no-of-selected-filter').html( $('.js-cards-filter-sidebar .active-filter-btn').length );
     $('.js-cards-filter-sidebar').removeClass('filter-sidebar-active');
-    $('.js-data-library .js-btns-wrapper .js-category-btn').removeClass('active-category-btn');
-    // if (activeFilters.length === 0){
-    //   $('.js-data-library .js-btns-wrapper .js-category-btn:first-child').addClass('active-category-btn');
-    // }
+    
     $('.js-data-library .js-btns-wrapper .js-category-btn').each(function(){
       if ( activeCategoryBtns.includes($(this).attr('data-filter'))) {
         $(this).addClass('active-category-btn');
