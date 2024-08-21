@@ -1,0 +1,150 @@
+.main-about-data-set {
+    
+    .heading2 {
+        padding-bottom: 2.5rem;
+    }
+
+    .content-wrapper {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 5rem;
+
+        .body3 {
+            margin: 0;
+        }
+
+        .intro {
+            width: 50%;
+        }
+
+        .details {
+            width: 50%;
+
+            .detail-row {
+                display: flex;
+                column-gap: 2.5rem;
+                align-items: center;
+
+                &:not(:last-of-type) {
+                    border-bottom: .06rem solid $secondarySemiLight;
+                    padding-bottom: 1.5rem;
+                }
+
+                &:not(:first-of-type) {
+                    padding-top: 1.5rem;
+                }
+
+                &:last-of-type {
+                    padding-bottom: .2rem;
+                }
+
+                .title {
+                    color: $baselinePrimary;
+                    min-width: 29.125%;
+                }
+
+                .value {
+
+                    .license-link {
+                        color: inherit;
+                        text-decoration: underline !important;
+                    }
+
+                    .tag-link {
+                        border: .06rem solid $secondarySemiLight;
+                        border-radius: .25rem;
+                        padding: 0.688rem 1.5rem;
+                        color: inherit;
+                        display: inline-block;
+                        cursor: default;
+
+                        &:not(:last-of-type) {
+                            margin-right: .3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media ($vpTablet991) {
+    .main-about-data-set {
+
+        .content-wrapper {
+
+            .details {
+
+                .detail-row {
+
+                    &:last-of-type {
+                        flex-direction: column;
+
+                        .title {
+                            width: 100%;
+                            padding-bottom: 1.25rem;
+                        }
+
+                        .value {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media ($vpMobile600) {
+    .main-about-data-set {
+
+        .heading2 {
+            font-size: 2rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .content-wrapper {
+            flex-direction: column;
+
+            .intro {
+                padding-bottom: 2.5rem;
+                font-size: 1rem;
+                width: 100%;
+            }
+
+            .details {
+                width: 100%;
+
+                .detail-row {
+                    column-gap: 2.5rem;
+
+                    &:not(:first-of-type) {
+                        padding-top: 1rem;
+                    }
+
+                    .title {
+                        min-width: unset;
+                        width: 44.286%;
+                    }
+
+                    .value {
+                        width: 44.286%;
+                    }
+
+                    &:last-of-type {
+                        flex-direction: column;
+
+                        .title {
+                            width: 100%;
+                            padding-bottom: 1.25rem;
+                        }
+
+                        .value {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
