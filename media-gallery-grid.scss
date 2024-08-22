@@ -1,0 +1,1484 @@
+.sec-media-gallery-grid {
+
+    .container--custom {
+        .wrapper-box {
+            .media-gallery-box {
+                position: relative;
+
+                .filter-bar {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 2.5rem 0 1.875rem;
+
+
+                    @media #{$vpTablet991} {
+                        flex-direction: column-reverse;
+                        margin-bottom: 1.25rem;
+                        margin-top: 2.5rem;
+                    }
+
+                    .left-filter {
+                        flex: 0 0 40%;
+                        max-width: 40%;
+                        @media #{$vpTablet991} {
+                            flex: 0 0 100%;
+                            max-width: 100%;
+                            margin-top: 1.5rem;
+                        }
+                        @media #{$vpMobile600} {
+                            margin-top: 0;
+                        }
+
+                        .nav-pills {
+                            display: flex;
+                            gap: 1rem;
+
+                            @media #{$vpMobile600} {
+                                flex-direction: row;
+                                overflow: scroll;
+                                flex-wrap: nowrap;
+                                padding: 2rem 0 1rem;
+                                margin-right: -1.25rem;
+                            }
+
+                            .nav-item {
+                                display: flex;
+                                @media #{$vpMobile600} {
+                                    flex: 0 0 auto;
+                                }
+
+                                .nav-link {
+                                    border-radius: 0.25rem;
+                                    max-width: fit-content;
+                                    padding: 1rem 1.5rem;
+                                    line-height: normal;
+                                    border: 0.063rem solid $secondarySimiLight;
+                                    background-color: transparent;
+                                    color: $baselineSecondary;
+                                    transition: all 0.4s ease;
+                                    display: flex;
+                                    max-height: 2.75rem;
+                                    align-items: center;
+                                    margin-right: 1rem;
+                                    cursor: pointer;
+
+                                    @media #{$vpMobile600} {
+                                        flex: 0 0 auto;
+                                    }
+
+                                    &:hover {
+                                        background-color: $secondarySimiLight;
+                                    }
+                                    &:focus {
+                                        outline: none;
+                                    }
+
+                                    &.active {
+                                        background-color: $secondarySimiLight;
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0.75rem;
+
+                                        &:after {
+                                            content: "";
+                                            width: 0.5rem;
+                                            height: 0.5rem;
+                                            display: block;
+                                            border-radius: 3.125rem;
+                                            background-color: $baselinePrimary;
+                                            transition: all 0.4s ease;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .right-filter {
+                        display: flex;
+                        align-items: center;
+                        flex: 0 0 60%;
+                        max-width: 60%;
+                        justify-content: flex-end;
+                        gap: 1.25rem;
+                        @media #{$vpTablet991} {
+                            justify-content: flex-start;
+                            flex: 0 0 100%;
+                            max-width: 100%;
+                        }
+                        @media #{$vpMobile600} {
+                            width: 100%;
+                            padding-left: 0;
+                            flex-direction: column;
+                            gap: 1.5rem;
+                        }
+
+                        .search-box {
+                            width: 25.3125rem;
+                            position: relative;
+
+                            @media #{$vpMobile600} {
+                                width: 100%;
+                            }
+
+                            .btn-search {
+                                position: absolute;
+                                left: auto;
+                                top: 50%;
+                                right: 1.25rem;
+                                transform: translateY(-50%);
+                                border: 0;
+                                background-color: transparent;
+                                outline: 0;
+
+                                @media #{$vpMobile600} {
+                                    right: 0.5rem;
+                                }
+
+                                .serch-icon {
+                                    width: 1.5rem;
+                                    height: 1.5rem;
+
+                                    path {
+                                        fill: $baselineSecondary;
+                                    }
+                                }
+                            }
+                        }
+
+                        .filter-view-type {
+                            width: 26.625rem;
+                            display: flex;
+                            gap: 1.25rem;
+
+                            svg {
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                transition: all 0.4s ease-in;
+                            }
+
+                            @media #{$vpMobile600} {
+                                width: 100%;
+                            }
+
+                            .sort-box {
+                                width: 16.438rem;
+                                background: $white;
+                                border: 0.063rem solid $secondarySimiLight;
+                                padding: 0 1.25rem;
+                                border-radius: 0.5rem;
+                                height: 4.563rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                cursor: pointer;
+
+                                @media #{$vpMobile600} {
+                                    width: 13.813rem;
+                                    height: 3.438rem;
+                                }
+
+                                &.icon-rotate {
+                                    .sort-icon {
+                                        transform: rotateX(180deg);
+                                        transition: all 0.4s ease-in;
+                                    }
+                                }
+                                p {
+                                    color: #5b5b5b;
+                                }
+                            }
+
+                            .view-type {
+                                width: 8.94rem;
+                                background: $white;
+                                border-radius: 0.5rem;
+                                border: 0.063rem solid $secondarySimiLight;
+                                height: 4.563rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                overflow: hidden;
+
+                                @media #{$vpMobile600} {
+                                    width: 6.81rem;
+                                    height: 3.44rem;
+                                }
+
+                                ul {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+
+                                    li {
+                                        padding-left: 0;
+                                        &::before {
+                                            display: none;
+                                        }
+                                        a {
+                                            width: 4.5rem;
+                                            padding: 1.5rem 1rem;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+
+                                            @media #{$vpMobile600} {
+                                                width: 3.4375rem;
+                                                height: 3.4375rem;
+                                                padding: 1.5rem 1rem;
+                                            }
+
+                                            &:hover {
+                                                background-color: $secondarySimiLight;
+                                            }
+
+                                            &.active {
+                                                background-color: $secondarySimiLight;
+                                            }
+
+                                            img {
+                                                width: 1.5rem;
+                                                height: 1.5rem;
+                                            }
+
+                                            &.grid-view-action {
+                                                &.active {
+                                                    .list-view-listing {
+                                                        display: none;
+                                                    }
+                                                }
+                                            }
+
+                                            &.list-view-action {
+                                                &.active {
+                                                    .grid-view-listing {
+                                                        display: none;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .input-field {
+                            background: $white;
+                            border: 0.063rem solid $secondarySimiLight;
+                            padding: 0 4rem 0 1.25rem;
+                            border-radius: 0.5rem;
+                            width: 100%;
+                            height: 4.563rem;
+
+                            @media #{$vpMobile600} {
+                                height: 3.438rem;
+                                padding: 1rem 2.5rem 1rem 1.5rem;
+                            }
+                            &::placeholder {
+                                color: #5B5B5B;
+                            }
+                        }
+                    }
+                }
+
+                .tab-content-wrapper {
+                    .tab-content {
+                        .filter-panel {
+                            .media-listing {
+                                &.grid-view-listing{
+                                    position: relative;
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    margin: 0 -0.625rem;
+                                    justify-content: flex-end;
+                                    @media #{$vpMobile600} {
+                                        margin: 0;
+                                    }
+
+                                    .listingWrapper {
+                                        flex: 0 0 25%;
+                                        max-width: 25%;
+                                        margin: 0;
+                                        padding: 0.625rem;
+                                        background: transparent;
+                                        width: auto;
+                                        height: auto;
+                                        @media #{$vpTablet991} {
+                                            flex: 0 0 33.33%;
+                                            max-width: 33.33%;
+                                        }
+                                        @media #{$vpMobile600} {
+                                            flex: 0 0 100%;
+                                            max-width: 100%;
+                                            padding: 0.5rem 0;
+                                            width: 100%;
+                                        }
+                                        .list-items {
+                                            &.list-view-item {
+                                                display: none !important;
+                                            }
+                                        }
+
+                                        .grid-view-item {
+                                            position: relative;
+                                            border-radius: 1rem;
+                                            overflow: hidden;
+                                            width: 25rem;
+                                            height: 20rem;
+                                            @media #{$vpTablet991} {
+                                                height: 24.5rem;
+                                                width: 100%;
+                                            }
+                                            @media #{$vpMobile600} {
+                                                width: 100%;
+                                                height: 24.375rem;
+                                                border-radius: 0.5rem;
+                                            }
+
+                                            &.podcast-item {
+                                                .main-content {
+                                                    .light-box-triger {
+                                                        .play-icon {
+                                                            display: none;
+                                                        }
+                                                    }
+                                                    .podcast-img {
+                                                        width: 100%;
+                                                        height: 15rem;
+
+                                                        @media #{$vpMobile600} {
+                                                            height: 11.5rem;
+                                                        }
+
+                                                        .poster-img {
+                                                            width: 100%;
+                                                            height: 15rem;
+
+                                                            @media #{$vpMobile600} {
+                                                                height: 12.188rem;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .podcast-detail {
+                                                        height: 15rem;
+
+                                                        @media #{$vpMobile600} {
+                                                            height: 12.188rem;
+                                                        }
+
+                                                        .inner-content {
+                                                            height: 50%;
+                                                        }
+                                                    }
+                                                }
+                                                .right-content {
+                                                    display: none;
+                                                }
+
+                                                .action-footer {
+                                                    flex-direction: column;
+                                                    align-items: flex-end !important;
+                                                    height: 50%;
+                                                    padding: 1.5rem !important;
+                                                    background-color: $secondarySemiLight;
+                                                    bottom: 0 !important;
+
+                                                    .heading {
+                                                        padding-right: 0rem !important;
+                                                        width: 100%;
+                                                        margin-right: auto;
+
+                                                        .heading5 {
+                                                            color: $baselineSecondary;
+
+                                                            @media #{$vpMobile600} {
+                                                                font-size: 1.25rem;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .icon-primary-btn {
+                                                        display: none;
+                                                    }
+
+                                                    .btn-box {
+                                                        @media #{$vpMobile600} {
+                                                            max-width: 100% !important;
+                                                            width: 100%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .main-content {
+                                                position: relative;
+                                                height: 100%;
+                                                cursor: pointer;
+                                                &.newsBox {
+                                                    .action-footer {
+                                                        flex-direction: column;
+                                                        align-items: flex-start !important;
+                                                        height: 15.8125rem;
+                                                        padding: 1.5rem !important;
+                                                        background-color: #F9F7F3;
+                                                        bottom: 0 !important;
+        
+                                                        .heading {
+                                                            padding-right: 0rem !important;
+        
+                                                            .heading5 {
+                                                                color: $baselineSecondary;
+                                                                display: -webkit-box;
+                                                                -webkit-line-clamp: 4;
+                                                                -webkit-box-orient: vertical;
+                                                                min-height: 8.438rem;
+                                                                overflow: hidden;
+                                                                 /*rtl:raw: -webkit-line-clamp: 3;*/
+        
+                                                                @media #{$vpMobile600} {
+                                                                    font-size: 1.25rem;
+                                                                    -webkit-line-clamp: 5;
+                                                                    min-height: 7.438rem;
+                                                                }
+                                                            }
+                                                        }
+        
+                                                        .btn-box {
+                                                            margin-left: 0;
+                                                            @media #{$vpMobile600} {
+                                                                max-width: 100% !important;
+                                                                width: 100%;
+                                                            }
+                                                        }
+                                                    }
+                                                    .ranking-img {
+                                                        width: 100%;
+                                                        height: 14.1875rem;
+                                                        @media #{$vpTablet991} {
+                                                            height: 11.5rem;
+                                                        }
+                                                    }
+        
+                                                    .ranking-detail {
+                                                        height: 15.8125rem;
+        
+                                                        @media #{$vpMobile600} {
+                                                            height: 13.0625rem;
+                                                        }
+                                                    }
+                                                }
+                                                picture {
+                                                    &:before {
+                                                        content: "";
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        display: block;
+                                                        background: linear-gradient(180deg,
+                                                                rgba(0, 0, 0, 0.3) 0%,
+                                                                rgba(0, 0, 0, 0) 16.25%),
+                                                            linear-gradient(0deg,
+                                                                rgba(0, 0, 0, 0.3) 0%,
+                                                                rgba(0, 0, 0, 0) 18.44%);
+                                                        position: absolute;
+                                                        top: 0;
+                                                        left: 0;
+                                                        z-index: 2;
+                                                        border-radius: 0.75rem;
+                                                    }
+
+                                                    .poster-img {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: cover;
+                                                        transition: all 0.4s ease;
+                                                        // border-radius: 1rem;
+
+                                                        @media #{$vpMobile600} {
+                                                            height: 24.375rem;
+                                                            border-radius: 0.5rem;
+                                                        }
+                                                    }
+                                                }
+
+                                                .inner-content {
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 0;
+                                                    padding: 1.5rem;
+                                                    height: 100%;
+                                                    width: 100%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: space-between;
+                                                    flex-direction: column;
+                                                    transition: all 0.4s ease;
+
+                                                    @media #{$vpMobile600} {
+                                                        padding: 1.25rem;
+                                                    }
+
+                                                    .cate-date-header {
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: space-between;
+                                                        width: 100%;
+                                                        margin: 0;
+                                                        text-transform: capitalize;
+
+                                                        .post-date {
+                                                            color: $white;
+                                                            margin: 0;
+
+                                                            @media #{$vpMobile600} {
+                                                                font-size: 0.875rem;
+                                                            }
+                                                        }
+
+                                                        .category {
+                                                            color: $secondaryColor;
+                                                            padding: 0.375rem 1rem;
+                                                            background-color: $secondarySimiLight;
+                                                            border-radius: 0.25rem;
+                                                            margin: 0;
+
+                                                            @media #{$vpMobile600} {
+                                                                font-size: 0.875rem;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .play-icon {
+                                                        position: absolute;
+                                                        top: 50%;
+                                                        left: 50%;
+                                                        transform: translate(-50%, -50%);
+                                                    }
+                                                }
+
+                                                .action-footer {
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: space-between;
+                                                    width: 100%;
+                                                    position: absolute;
+                                                    top: auto;
+                                                    bottom: 1.5rem;
+                                                    padding: 0 1.5rem;
+                                                    z-index: 3;
+
+                                                    @media #{$vpMobile600} {
+                                                        bottom: 1.25rem;
+                                                        padding: 0 1.25rem;
+                                                    }
+
+                                                    .heading {
+                                                        max-width: fit-content;
+                                                        padding-right: 1.875rem;
+
+                                                        @media #{$vpMobile600} {}
+
+                                                        .body1 {
+                                                            color: $white;
+                                                            margin: 0;
+                                                            font-size: 1.25rem;
+                                                        }
+                                                    }
+
+                                                    .btn-box {
+                                                        max-width: 11.563rem;
+                                                        display: flex;
+                                                        align-items: center;
+                                                        gap: 0.875rem;
+                                                        margin-left: 0.875rem;
+
+                                                        @media #{$vpMobile600} {
+                                                            gap: 0.5rem;
+                                                        }
+
+                                                        .main-primary-btn {
+                                                            padding: .75rem 1.5rem;
+                                                            line-height: 1.2;
+                                                            width: 7.9375rem;
+                                                            text-align: center;
+
+                                                            @media #{$vpMobile600} {
+                                                                padding: 0.5rem 1.125rem;
+                                                            }
+
+                                                            &:hover {
+                                                                background-color: $white;
+                                                            }
+
+                                                            @media #{$vpMobile600} {
+                                                                .btn-text {
+                                                                    font-size: 0.875rem;
+                                                                }
+                                                            }
+                                                        }
+
+                                                        .icon-primary-btn {
+                                                            width: 2.875rem;
+                                                            height: 2.875rem;
+                                                            transition: all .35s ease;
+                                                            border: 0.063rem solid $white;
+
+                                                            &:hover,
+                                                            &:focus {
+                                                                border: 0.063rem solid $baselinePrimary;
+                                                                transition: all .35s ease;
+                                                                background-color: $secondarySemiLight;
+                                                            }
+
+                                                            @media #{$vpMobile600} {
+                                                                width: 2.25rem;
+                                                                height: 2.25rem;
+                                                            }
+
+                                                            img {
+                                                                width: 0.875rem;
+                                                                height: 0.875rem;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            &.list-view-item {
+                                                display: none;
+                                            }
+                                        }
+
+                                        .view-wrapper {
+                                            display: flex;
+                                            justify-content: space-between;
+                                            width: 100%;
+                                            margin-top: 40.5rem;
+
+                                            @media #{$vpMobile600} {
+                                                position: absolute;
+                                                top: auto;
+                                                bottom: -1.25rem;
+                                                justify-content: flex-end;
+                                                width: auto;
+                                                right: 0;
+                                            }
+
+                                            .main-secondary-btn {
+                                                @media #{$vpMobile600} {
+                                                    .btn-text {
+                                                        font-size: 0.875rem;
+                                                    }
+                                                }
+
+                                                &.with-ic {
+                                                    @media #{$vpMobile600} {
+                                                        padding: 0.875rem 1.5rem;
+
+                                                        span {
+                                                            &:last-child {
+                                                                display: none;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    img {
+                                                        width: 1rem;
+                                                        height: 1rem;
+                                                    }
+                                                }
+                                            }
+
+                                            .arrow-wrap {
+                                                bottom: 0;
+                                                top: 2.188rem;
+                                            }
+                                        }
+                                    }
+                                }
+                                &.filterSlider {
+                                    position: relative;
+                                    flex-wrap: wrap;
+                                    margin: 0 -0.625rem;
+
+                                    @media #{$vpMobile600} {
+                                        margin: 0;
+                                    }
+
+                                    .listingWrapper {
+                                        max-width: 100%;
+                                        margin: 0;
+                                        padding: 0.625rem;
+                                        background: transparent;
+                                        width: auto;
+                                        height: auto;
+                                        @media #{$vpTablet991} {
+                                            flex: 0 0 33.33%;
+                                            max-width: 33.33%;
+                                        }
+                                        @media #{$vpMobile600} {
+                                            flex: 0 0 100%;
+                                            max-width: 100%;
+                                            padding: 0.5rem 0.313rem;
+                                            width: 100%;
+                                        }
+                                        .list-items {
+                                            &.list-view-item {
+                                                display: none !important;
+                                            }
+                                        }
+
+                                        .grid-view-item {
+                                            position: relative;
+                                            border-radius: 1rem;
+                                            overflow: hidden;
+                                            width: 25rem;
+                                            height: 30rem;
+                                            @media #{$vpTablet991} {
+                                                height: 24.5rem;
+                                                width: 100%;
+                                            }
+                                            @media #{$vpMobile600} {
+                                                width: 100%;
+                                                height: 24.375rem;
+                                                border-radius: 0.5rem;
+                                            }
+
+                                            &.podcast-item {
+                                                .main-content {
+                                                    .light-box-triger {
+                                                        .play-icon {
+                                                            display: none;
+                                                        }
+                                                    }
+                                                    .podcast-img {
+                                                        width: 100%;
+                                                        height: 15rem;
+
+                                                        @media #{$vpMobile600} {
+                                                            height: 11.5rem;
+                                                        }
+
+                                                        .poster-img {
+                                                            width: 100%;
+                                                            height: 15rem;
+
+                                                            @media #{$vpMobile600} {
+                                                                height: 12.188rem;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .podcast-detail {
+                                                        height: 15rem;
+
+                                                        @media #{$vpMobile600} {
+                                                            height: 12.188rem;
+                                                        }
+
+                                                        .inner-content {
+                                                            height: 50%;
+                                                        }
+                                                    }
+                                                }
+                                                .right-content {
+                                                    display: none;
+                                                }
+
+                                                .action-footer {
+                                                    flex-direction: column;
+                                                    align-items: flex-end !important;
+                                                    height: 50%;
+                                                    padding: 1.5rem !important;
+                                                    background-color: $secondarySemiLight;
+                                                    bottom: 0 !important;
+
+                                                    .heading {
+                                                        padding-right: 0rem !important;
+                                                        width: 100%;
+                                                        margin-right: auto;
+
+                                                        .heading5 {
+                                                            color: $baselineSecondary;
+
+                                                            @media #{$vpMobile600} {
+                                                                font-size: 1.25rem;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .icon-primary-btn {
+                                                        display: none;
+                                                    }
+
+                                                    .btn-box {
+                                                        @media #{$vpMobile600} {
+                                                            max-width: 100% !important;
+                                                            width: 100%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .main-content {
+                                                position: relative;
+                                                height: 100%;
+                                                cursor: pointer;
+                                                &.newsBox {
+                                                    .action-footer {
+                                                        flex-direction: column;
+                                                        align-items: flex-start !important;
+                                                        height: 15.8125rem;
+                                                        padding: 1.5rem !important;
+                                                        background-color: $secondarySemiLight;
+                                                        bottom: 0 !important;
+        
+                                                        .heading {
+                                                            padding-right: 0rem !important;
+        
+                                                            .heading5 {
+                                                                color: $baselineSecondary;
+                                                                display: -webkit-box;
+                                                                -webkit-line-clamp: 4;
+                                                                -webkit-box-orient: vertical;
+                                                                min-height: 8.438rem;
+                                                                overflow: hidden;
+                                                                 /*rtl:raw: -webkit-line-clamp: 3;*/
+        
+                                                                @media #{$vpMobile600} {
+                                                                    font-size: 1.25rem;
+                                                                    -webkit-line-clamp: 5;
+                                                                    min-height: 7.438rem;
+                                                                }
+                                                            }
+                                                        }
+        
+                                                        .btn-box {
+                                                            margin-left: 0;
+                                                            @media #{$vpMobile600} {
+                                                                max-width: 100% !important;
+                                                                width: 100%;
+                                                            }
+                                                        }
+                                                    }
+                                                    .ranking-img {
+                                                        width: 100%;
+                                                        height: 14.1875rem;
+                                                        @media #{$vpTablet991} {
+                                                            height: 11.5rem;
+                                                        }
+                                                    }
+        
+                                                    .ranking-detail {
+                                                        height: 15.8125rem;
+        
+                                                        @media #{$vpMobile600} {
+                                                            height: 13.0625rem;
+                                                        }
+                                                    }
+                                                }
+                                                picture {
+                                                    &:before {
+                                                        content: "";
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        display: block;
+                                                        background: linear-gradient(180deg,
+                                                                rgba(0, 0, 0, 0.3) 0%,
+                                                                rgba(0, 0, 0, 0) 16.25%),
+                                                            linear-gradient(0deg,
+                                                                rgba(0, 0, 0, 0.3) 0%,
+                                                                rgba(0, 0, 0, 0) 18.44%);
+                                                        position: absolute;
+                                                        top: 0;
+                                                        left: 0;
+                                                        z-index: 2;
+                                                        border-radius: 0.75rem;
+                                                    }
+
+                                                    .poster-img {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        object-fit: cover;
+                                                        transition: all 0.4s ease;
+                                                        // border-radius: 1rem;
+
+                                                        @media #{$vpMobile600} {
+                                                        border-radius: 0.5rem;
+                                                        height: 24.375rem;
+                                                        }
+                                                    }
+                                                }
+
+                                                .inner-content {
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 0;
+                                                    padding: 1.5rem;
+                                                    height: 100%;
+                                                    width: 100%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: space-between;
+                                                    flex-direction: column;
+                                                    transition: all 0.4s ease;
+
+                                                    @media #{$vpMobile600} {
+                                                        padding: 1.25rem;
+                                                    }
+
+                                                    .cate-date-header {
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: space-between;
+                                                        width: 100%;
+                                                        margin: 0;
+                                                        text-transform: capitalize;
+
+                                                        .post-date {
+                                                            color: $white;
+                                                            margin: 0;
+
+                                                            @media #{$vpMobile600} {
+                                                                font-size: 0.875rem;
+                                                            }
+                                                        }
+
+                                                        .category {
+                                                            color: $secondaryColor;
+                                                            padding: 0.375rem 1rem;
+                                                            background-color: $secondarySimiLight;
+                                                            border-radius: 0.25rem;
+                                                            margin: 0;
+
+                                                            @media #{$vpMobile600} {
+                                                                font-size: 0.875rem;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .play-icon {
+                                                        position: absolute;
+                                                        top: 50%;
+                                                        left: 50%;
+                                                        transform: translate(-50%, -50%);
+                                                    }
+                                                }
+
+                                                .action-footer {
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: space-between;
+                                                    width: 100%;
+                                                    position: absolute;
+                                                    top: auto;
+                                                    bottom: 1.5rem;
+                                                    padding: 0 1.5rem;
+                                                    z-index: 3;
+
+                                                    @media #{$vpMobile600} {
+                                                        bottom: 1.25rem;
+                                                        padding: 0 1.25rem;
+                                                    }
+
+                                                    .heading {
+                                                        max-width: fit-content;
+                                                        padding-right: 1.875rem;
+
+                                                        @media #{$vpMobile600} {}
+
+                                                        .body1 {
+                                                            color: $white;
+                                                            margin: 0;
+                                                            font-size: 1.25rem;
+                                                        }
+                                                    }
+
+                                                    .btn-box {
+                                                        max-width: 11.563rem;
+                                                        display: flex;
+                                                        align-items: center;
+                                                        gap: 0.875rem;
+                                                        margin-left: 0.875rem;
+
+                                                        @media #{$vpMobile600} {
+                                                            gap: 0.5rem;
+                                                        }
+
+                                                        .main-primary-btn {
+                                                            padding: .75rem 1.5rem;
+                                                            line-height: 1.2;
+                                                            width: 7.9375rem;
+                                                            text-align: center;
+
+                                                            @media #{$vpMobile600} {
+                                                                padding: 0.5rem 1.125rem;
+                                                            }
+
+                                                            &:hover {
+                                                                background-color: $white;
+                                                            }
+
+                                                            @media #{$vpMobile600} {
+                                                                .btn-text {
+                                                                    font-size: 0.875rem;
+                                                                }
+                                                            }
+                                                        }
+
+                                                        .icon-primary-btn {
+                                                            width: 2.875rem;
+                                                            height: 2.875rem;
+                                                            transition: all .35s ease;
+                                                            border: 0.063rem solid $white;
+
+                                                            &:hover,
+                                                            &:focus {
+                                                                border: 0.063rem solid $baselinePrimary;
+                                                                transition: all .35s ease;
+                                                            }
+
+                                                            @media #{$vpMobile600} {
+                                                                width: 2.25rem;
+                                                                height: 2.25rem;
+                                                            }
+
+                                                            img {
+                                                                width: 0.875rem;
+                                                                height: 0.875rem;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            &.list-view-item {
+                                                display: none;
+                                            }
+                                        }
+
+                                        .view-wrapper {
+                                            display: flex;
+                                            justify-content: space-between;
+                                            width: 100%;
+                                            margin-top: 40.5rem;
+
+                                            @media #{$vpMobile600} {
+                                                position: absolute;
+                                                top: auto;
+                                                bottom: -1.25rem;
+                                                justify-content: flex-end;
+                                                width: auto;
+                                                right: 0;
+                                            }
+
+                                            .main-secondary-btn {
+                                                @media #{$vpMobile600} {
+                                                    .btn-text {
+                                                        font-size: 0.875rem;
+                                                    }
+                                                }
+
+                                                &.with-ic {
+                                                    @media #{$vpMobile600} {
+                                                        padding: 0.875rem 1.5rem;
+
+                                                        span {
+                                                            &:last-child {
+                                                                display: none;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    img {
+                                                        width: 1rem;
+                                                        height: 1rem;
+                                                    }
+                                                }
+                                            }
+
+                                            .arrow-wrap {
+                                                bottom: 0;
+                                                top: 2.188rem;
+                                            }
+                                        }
+                                    }
+                                    .slick-dots{
+                                        justify-content: flex-start;
+                                        margin-top: 43px;
+                                    }
+                                }
+                                &.noSlider {
+                                    .listingWrapper {
+                                        flex: 0 0 25%;
+                                        max-width: 25%;
+                                        @media #{$vpTablet991} {
+                                            flex: 0 0 33.33%;
+                                            max-width: 33.33%;
+                                        }
+                                        @media #{$vpMobile600} {
+                                            flex: 0 0 100%;
+                                            max-width: 100%;
+                                            padding: 0.5rem 0.313rem;
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                                &.list-view-listing {
+                                    display: flex;
+                                    gap: 2rem;
+                                    flex-direction: column;
+                                    flex-wrap: wrap;
+                                    @media #{$vpMobile600} {
+                                        gap: 1rem;
+                                    }
+
+                                    .listingWrapper {
+                                        flex: 0 0 100%;
+                                        max-width: 100%;
+                                        margin: 0;
+                                        padding: 0.625rem 0;
+                                        background: transparent;
+                                        width: 100%;
+                                        height: auto;
+                                        // .list-items {
+                                        //     &.grid-view-item {
+                                        //         display: none !important;
+                                        //     }
+                                        // }
+
+                                        .grid-view-item {
+                                            display: flex !important;
+                                            align-items: center;
+                                            width: 100%;
+                                            border: 0.063rem solid $secondarySemiLight;
+                                            border-radius: 1rem;
+                                            overflow: hidden;
+                                            cursor: pointer;
+                                            height: 100%;
+
+                                            @media #{$vpMobile600} {
+                                                border-radius: 0.5rem;
+                                                padding: 0.625rem;
+                                                align-items: flex-start;
+                                                gap: 1rem;
+                                                height: auto;
+                                            }
+
+                                            &.images-cate {
+                                                .play-icon {
+                                                    display: none;
+                                                }
+                                            }
+                                            .main-content {
+                                                display: flex;
+                                                justify-content: space-between;
+                                                height: 100%;
+                                                width: 100%;
+                                                .action-footer {
+                                                    display: none;
+                                                }
+                                                .inner-content {
+                                                    display: none;
+                                                }
+                                            }
+                                            .light-box-triger {
+                                                flex: 0 0 33.3334%;
+                                                max-width: 33.3334%;
+                                                position: relative;
+                                                img {
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    object-fit: cover;
+                                                    max-height: 18.75rem;
+                                                }
+                                                @media #{$vpMobile600} {
+                                                    flex: 0 0 38.5%;
+                                                    max-width: 38.5%;
+                                                    max-height: 4.5rem;
+                                                    img {
+                                                        height: 4.5rem;
+                                                        border-radius: 0.25rem;
+                                                    }
+                                                }
+                                                
+                                                .play-icon {
+                                                    position: absolute;
+                                                    top: 50%;
+                                                    left: 50%;
+                                                    transform: translate(-50%, -50%);
+
+                                                    @media #{$vpMobile600} {
+                                                        .icon-play {
+                                                            width: 2rem;
+                                                        }
+                                                    }
+                                                }
+                                                .podcast-detail {
+                                                    display: none;
+                                                }
+                                                .podcast-img {
+                                                    width: 100%;
+                                                    height: 100%;
+                                                }
+                                            }
+
+                                            .right-content {
+                                                padding: 2rem 2.5rem;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: space-between;
+                                                flex: 0 0 66.6%;
+                                                max-width: 66.6%;
+
+                                                @media #{$vpMobile600} {
+                                                    padding: 0 1rem;
+                                                    flex: 0 0 61.5%;
+                                                    max-width: 61.5%;
+                                                }
+
+                                                .inner-left {
+                                                    width: 50.625rem;
+                                                    display: flex;
+                                                    flex-direction: column;
+                                                    gap: 1.5rem;
+
+                                                    .heading3 {
+                                                        margin: 0;
+                                                    }
+
+                                                    @media #{$vpMobile600} {
+                                                        gap: 1rem;
+
+                                                        .heading3 {
+                                                            font-size: 0.875rem;
+                                                            line-height: 1.225rem;
+
+                                                        }
+                                                    }
+
+                                                    .cate-date-header {
+                                                        display: flex;
+                                                        align-items: flex-start;
+                                                        justify-content: center;
+                                                        width: 100%;
+                                                        margin: 0;
+                                                        flex-direction: column;
+                                                        gap: 1.5rem;
+                                                        text-transform: capitalize;
+                                                        width: max-content;
+                                                        @media #{$vpMobile600} {
+                                                            flex-direction: row;
+                                                            align-items: center;
+                                                            justify-content: flex-start;
+                                                            gap: 1rem;
+                                                        }
+
+                                                        .post-date {
+                                                            color: $secondaryColor;
+                                                            margin: 0;
+
+                                                            @media #{$vpMobile600} {
+                                                                font-size: 0.75rem;
+                                                                padding: 0;
+                                                            }
+                                                        }
+
+                                                        .category {
+                                                            color: $secondaryColor;
+                                                            padding: 0.375rem 1rem;
+                                                            background-color: $secondarySimiLight;
+                                                            border-radius: 0.25rem;
+                                                            margin: 0;
+
+                                                            @media #{$vpMobile600} {
+                                                                font-size: 0.75rem;
+                                                                padding: 0.25rem 0.75rem;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+
+                                                .inner-right {
+                                                    @media #{$vpMobile600} {
+                                                        display: none;
+                                                    }
+
+                                                    .btn-box {
+                                                        display: flex;
+                                                        align-items: center;
+                                                        gap: 1rem;
+                                                        flex-direction: column;
+
+                                                        .main-secondary-btn {
+                                                            min-width: 10rem;
+                                                            outline: none;
+                                                            text-align: center;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            // &.grid-view-item {
+                                            //     display: none !important;
+                                            // }
+                                        }
+                                    }
+                                }
+                            }
+                            .view-wrapper{
+                                position: relative;
+                               .main-secondary-btn{
+                                display: flex;
+                                margin-top: 3rem;
+
+                                @media #{$vpMobile600} {
+                                    width: max-content;
+                                    top: -25px;
+                                    position: absolute;
+                                    right: 0;
+                                    margin-top: 0;
+                                }
+
+                               }
+                               .pagination--arrow{
+                                bottom: 1.25rem;
+                                position: absolute;
+                                right: 0;
+                                .slider-arrow-pagination{
+                                    padding-top: 0;
+                                    .arrow-wrap{
+                                        bottom: 0;
+                                    }
+                                }
+                               }
+                            }
+                        }
+                    }
+                }
+                .arrow-wrap {
+                    bottom: -75px;
+                }
+            }
+        }
+    }
+
+    .heading-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .wrapper-heading {
+            min-width: 50%;
+        }
+    }
+    
+    &.data-library {
+        padding-bottom: 0;
+        margin-bottom: -.625rem;
+
+        .container--custom {
+
+            .wrapper-box {
+
+                .media-gallery-box {
+                    
+                    .filter-bar {
+                    
+                        .left-filter {
+
+                            .nav-pills {
+                                
+                                .nav-item {
+                                    margin-right: 0;
+
+                                    .nav-link {
+                                        max-height: unset;
+                                        padding: 1.594rem 2rem;
+                                    }
+
+                                    &:last-of-type {
+                                        .nav-link {
+                                            margin-right: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .right-filter {
+                            
+                            .search-box {
+                            
+                                .btn-search {
+                                    right: 1rem;
+                                    padding: 0;
+    
+                                    .serch-icon {
+                                        
+                                        path {
+                                           
+                                        }
+                                    }
+                                }
+                            }
+    
+                            .filter-view-type {
+                                
+                                svg {
+                                    
+                                }
+    
+                                .sort-box {
+                                    padding: 0 1rem;
+
+                                    &.icon-rotate {
+                                        .sort-icon {
+                                           
+                                        }
+                                    }
+                                    p {
+                                        
+                                    }
+                                }
+    
+                                .view-type {
+                                    
+                                    ul {
+                                        
+                                        li {
+                                           
+                                            a {
+                                                padding: 1.5rem; 
+
+                                                &.list-view-action {
+                                                    &.active {
+                                                        .grid-view-listing {
+                                                            
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+    
+                            .input-field {
+                                padding: 0 3.5rem 0 1rem;
+    
+                                @media #{$vpMobile600} {
+                                   
+                                }
+                                &::placeholder {
+                                   
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
