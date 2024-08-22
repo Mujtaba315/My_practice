@@ -6425,3 +6425,20 @@ function handlingFilterBtnClick () {
     });
   });
 }
+
+// e-participate strategy click handling 
+
+$('.main-e-participate .js-strategy').click(function () {
+  $('.main-e-participate .js-strategy').removeClass('active-strategy');
+  $(this).addClass('active-strategy');
+});
+
+// e-participate strategy handling hover 
+
+$('.main-e-participate .js-strategy').hover(
+  function() {
+    //$(this).addClass('active-strategy');
+    $('.main-e-participate .js-strategy').removeClass('active-strategy')
+}, function() {
+  //$('.main-e-participate .js-strategy').removeClass('active-strategy');
+});
