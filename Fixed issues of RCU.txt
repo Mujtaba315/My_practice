@@ -1,0 +1,11 @@
+Fixed issues:
+
+1)	1920 | Open data library | Overall padding in the tag mismatches with the design.
+2)	1920 | Open data library | Fix the space between the tags
+3)	1920 | Open data library | Left space of the placeholders mismatches with the design
+4)	1920 | Open data library | Left and right padding of both icons mismatches with the design
+5)	1920 | Open data library | Bottom padding in the card mismatches with the design.
+6)	1920 | Open data library | Border radius of the icon mismatches with the design
+7)	1920, 390 | Open data library | Remove that extra 10px space between the cards and slider icons.
+8)	390, 1920 | Open data library | Size of slider icons mismatches with the design.
+9)	390 | Open data library | Space between the CTAs and Views & download content mismatches with the design. Also fix the space between the digits and text.
