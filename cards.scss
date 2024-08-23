@@ -120,20 +120,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2.5rem 7.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
 
-    @media #{$vpTablet991} {
-      padding: 2.5rem 4.5rem;
-    }
+    
 
     @media #{$vpMobile600} {
       flex-direction: column;
       align-items: flex-start;
-      padding: 2.5rem 1.25rem;
       row-gap: 1.5rem;
     }
     
     .title {
+      max-width: 33.333%;
+      flex: 0 0 33.333%;
+
+      @media #{$vpMobile600} {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
 
       .heading5 {
         @media #{$vpMobile600} {
@@ -145,6 +150,13 @@
     .stars {
       display: flex;
       justify-content: center;
+      max-width: 33.333%;
+      flex: 0 0 33.333%;
+
+      @media #{$vpMobile600} {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
 
       svg {
         height: 1.5rem;
@@ -160,18 +172,32 @@
       display: flex;
       justify-content: end;
       align-items: center;
+      max-width: 33.333%;
+      flex: 0 0 33.333%;
 
-      .page-rating {
-        padding-right: 1rem;
-        border-right: .06rem solid $baselinePrimary;
-
-        @media #{$vpMobile600} {
-          font-size: 1.125rem;
-        }
+      @media #{$vpMobile600} {
+        max-width: 100%;
+        flex: 0 0 100%;
       }
 
-      .num-of-rating {
-        padding-left: 1rem;
+      .rating-wrapper {
+
+        &:first-of-type {
+          padding-right: 1rem;
+          border-right: .06rem solid $baselinePrimary;
+        }
+
+        &:last-of-type {
+          padding-left: 1rem;
+        }
+
+        .body1 {
+          margin: 0;
+
+          span {
+            margin-left: .361rem;
+          }
+        }
 
         @media #{$vpMobile600} {
           font-size: 1.125rem;
