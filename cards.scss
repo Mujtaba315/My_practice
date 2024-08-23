@@ -6,9 +6,16 @@
     padding: 2.5rem 2rem 2rem;
     border-radius: 0.5rem;
     overflow: initial !important;
+    @media #{$vpMobile600} {
+      padding: 2rem 1.5rem 1.5rem;
+    }
     .card-post-content-info {
       .heading5 {
         margin-bottom: 5.25rem;
+        @media #{$vpMobile600} {
+          margin-bottom: 4rem;
+          font-size: 1.25rem;
+        }
       }
       .stats-wrap {
         display: flex;
