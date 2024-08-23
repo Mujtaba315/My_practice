@@ -6433,12 +6433,13 @@ $('.main-e-participate .js-strategy').click(function () {
   $(this).addClass('active-strategy');
 });
 
-// e-participate strategy handling hover 
-
-$('.main-e-participate .js-strategy').hover(
-  function() {
-    //$(this).addClass('active-strategy');
-    $('.main-e-participate .js-strategy').removeClass('active-strategy')
-}, function() {
-  //$('.main-e-participate .js-strategy').removeClass('active-strategy');
-});
+// // e-participate strategy handling hover 
+// if ( $(window).width() > 600 ) {
+//   $('.main-e-participate .js-strategy').hover(
+//     function() {
+//       //$(this).addClass('active-strategy');
+//       $('.main-e-participate .js-strategy').removeClass('active-strategy')
+//   }, function() {
+//       //$('.main-e-participate .js-strategy').removeClass('active-strategy');
+//   });
+// }

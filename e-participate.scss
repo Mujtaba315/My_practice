@@ -38,16 +38,16 @@
                 }
             }
 
-            &:hover {
-                flex: 1 1 60.604%;
+            // &:hover {
+            //     flex: 1 1 60.604%;
 
-                .strategy-content {
+            //     .strategy-content {
 
-                    .strategy-read-more {
-                        display: inline-block;
-                    }
-                }
-            }
+            //         .strategy-read-more {
+            //             display: inline-block;
+            //         }
+            //     }
+            // }
 
             &:first-of-type {
 
@@ -108,6 +108,7 @@
             flex-direction: column;
 
             .strategy {
+                //min-height: 15rem;
 
                 &:first-of-type {
 
@@ -128,13 +129,15 @@
                 }
 
                 &.active-strategy {
+                    //min-height: 21.875rem;
+
                     .strategy-img {
                         min-height: 21.875rem;
                     }
                 }
 
                 .strategy-img {
-                    min-height: 15rem;
+                   min-height: 15rem;
                 }
 
                 .strategy-content {
