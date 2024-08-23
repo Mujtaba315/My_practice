@@ -10,3 +10,4 @@ v - 7) 	1920, 390 | Open data library | Remove that extra 10px space between the
 v - 8) 	390, 1920 | Open data library | Size of slider icons mismatches with the design.
 v - 9) 	390 | Open data library | Space between the CTAs and Views & download content mismatches with the design. Also fix the space between the digits and text.
 v - 10)	390 | Open data library | Font size of the heading mismatches with the design. Also fix the space between the heading and Views & download content.
+v - 11) 1920 | Open data library | Font weight and line height mismatches with the design.
