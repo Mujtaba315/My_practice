@@ -141,6 +141,8 @@
       }
 
       .heading5 {
+        line-height: 1.3;
+        
         @media #{$vpMobile600} {
           font-size: 1.25rem;
         }
@@ -194,14 +196,15 @@
         .body1 {
           margin: 0;
 
+          @media #{$vpMobile600} {
+            font-size: 1.125rem;
+          }
+
           span {
             margin-left: .361rem;
           }
         }
 
-        @media #{$vpMobile600} {
-          font-size: 1.125rem;
-        }
       }
     }
   }
