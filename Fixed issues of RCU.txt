@@ -13,3 +13,5 @@ v - 10)	390 | Open data library | Font size of the heading mismatches with the d
 v - 11) 1920 | Open data library | Font weight and line height mismatches with the design.
 v - 12) 1920, 390 | Open data cards | Font size and line height of the text mismatches with the design.
 v - 13) 1920, 390 | Open data cards | Line height mismatches with the design. fix the same issue in 390.
+
+27/8/24
