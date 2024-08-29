@@ -167,9 +167,9 @@
                         }
                     }
 
-                    .strategy-minus-icon {
-                        display: none;
-                    }
+                    // .strategy-minus-icon {
+                    //     display: none;
+                    // }
                 }
 
                 &:first-of-type {
@@ -204,16 +204,22 @@
                     .strategy-icon-btn {
 
                         .strategy-plus-icon {
-                            display: none;
-                        }
-                        
-                        .strategy-minus-icon {
-                            display: block;
-
+                            // display: none;
                             path {
-                                fill: $white;
+
+                                &:last-of-type {
+                                    display: none;
+                                }
                             }
                         }
+                        
+                        // .strategy-minus-icon {
+                        //     display: block;
+
+                        //     path {
+                        //         fill: $white;
+                        //     }
+                        // }
 
                     }
 
