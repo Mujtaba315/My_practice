@@ -25,10 +25,14 @@
         .strategy {
             position: relative;
             flex: 1 1 33.333%;
-            transition: all .3s ease-in-out;
+            transition: all .35s ease-in-out;
 
             &.active-strategy {
                 flex: 1 1 60.604%;
+
+                .strategy-overlay {
+                    opacity: .5;
+                }
 
                 .strategy-content {
 
@@ -36,6 +40,18 @@
                         display: inline-block;
                     }
                 }
+            }
+
+            .strategy-overlay {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: black;
+                opacity: .25;
+            }
+
+            .strategy-icon-btn {
+                display: none;
             }
 
             // &:hover {
@@ -50,18 +66,26 @@
             // }
 
             &:first-of-type {
+                border-right: .125rem solid $white;
+
+                .strategy-overlay {
+                    border-radius: 2rem 0 0 2rem;
+                }
 
                 .strategy-img {
                     border-radius: 2rem 0 0 2rem ;
-                    border-right: .125rem solid $white;
                 }
             }
 
             &:last-of-type {
+                border-left: .125rem solid $white;
+
+                .strategy-overlay {
+                    border-radius: 0 2rem 2rem 0;
+                }
 
                 .strategy-img {
                     border-radius: 0 2rem 2rem 0;
-                    border-left: .125rem solid $white;
                 }
             }
 
@@ -82,6 +106,18 @@
                     display: none;
                     margin-top: 2.5rem;
                 }
+            }
+        }
+    }
+}
+
+@media ($vpTablet991) {
+    .main-e-participate {
+
+        .top-text-sec {
+
+            .heading2 {
+                padding-right: 9rem;
             }
         }
     }
@@ -110,26 +146,76 @@
             .strategy {
                 //min-height: 15rem;
 
+                .strategy-icon-btn {
+                    display: flex;
+                    position: absolute;
+                    top: 1.25rem;
+                    right: 1.25rem;
+                    min-height: 3rem;
+                    min-width: 3rem;
+                    padding: 0;
+                    background: none;
+                    border: .06rem solid $white;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5rem;
+
+                    .strategy-plus-icon {
+
+                        path {
+                            fill: $white;
+                        }
+                    }
+
+                    .strategy-minus-icon {
+                        display: none;
+                    }
+                }
+
                 &:first-of-type {
+                    border-bottom: .06rem solid $white;
+                    border-right: none;
+
+                    .strategy-overlay {
+                        border-radius: 2rem 2rem 0 0;
+                    }
 
                     .strategy-img {
-                        border-right: none;
-                        border-bottom: .125rem solid $white;
                         border-radius: 2rem 2rem 0 0;
                     }
                 }
     
                 &:last-of-type {
+                    border-top: .06rem solid $white;
+                    border-left: none;
+
+                    .strategy-overlay {
+                        border-radius: 0 0 2rem 2rem;
+                    }
     
                     .strategy-img {
-                        border-left: none;
-                        border-top: .125rem solid $white;
                         border-radius: 0 0 2rem 2rem;
                     }
                 }
 
                 &.active-strategy {
                     //min-height: 21.875rem;
+
+                    .strategy-icon-btn {
+
+                        .strategy-plus-icon {
+                            display: none;
+                        }
+                        
+                        .strategy-minus-icon {
+                            display: block;
+
+                            path {
+                                fill: $white;
+                            }
+                        }
+
+                    }
 
                     .strategy-img {
                         min-height: 21.875rem;
@@ -138,6 +224,7 @@
 
                 .strategy-img {
                    min-height: 15rem;
+                   transition: all .35s ease-in-out;
                 }
 
                 .strategy-content {
@@ -149,18 +236,6 @@
                         padding: .5rem 1.125rem;
                     }
                 }
-            }
-        }
-    }
-}
-
-@media ($vpTablet991) {
-    .main-e-participate {
-
-        .top-text-sec {
-
-            .heading2 {
-                padding-right: 9rem;
             }
         }
     }
