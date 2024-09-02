@@ -922,6 +922,12 @@ $(document).ready(function () {
 
   // Calling handling Filter Btn Click 
   handlingFilterBtnClick ();
+
+  // Calling e-participate strategy click handler
+  handleEParticipateStrategyClick ();
+
+  // Calling alula feature card wrap click handler
+  handleAlulaFeatureCardClick ();
 });
 
 function intlTelInputInit() {
@@ -6427,19 +6433,39 @@ function handlingFilterBtnClick () {
 }
 
 // e-participate strategy click handling 
+function handleEParticipateStrategyClick () {
+  $('.main-e-participate .js-strategy').click(function () {
+    $('.main-e-participate .js-strategy').removeClass('active-strategy');
+    $(this).addClass('active-strategy');
+  });
+  
+  // // e-participate strategy handling hover 
+  // if ( $(window).width() > 600 ) {
+  //   $('.main-e-participate .js-strategy').hover(
+  //     function() {
+  //       //$(this).addClass('active-strategy');
+  //       $('.main-e-participate .js-strategy').removeClass('active-strategy')
+  //   }, function() {
+  //       //$('.main-e-participate .js-strategy').removeClass('active-strategy');
+  //   });
+  // }
+}
 
-$('.main-e-participate .js-strategy').click(function () {
-  $('.main-e-participate .js-strategy').removeClass('active-strategy');
-  $(this).addClass('active-strategy');
-});
 
-// // e-participate strategy handling hover 
-// if ( $(window).width() > 600 ) {
-//   $('.main-e-participate .js-strategy').hover(
-//     function() {
-//       //$(this).addClass('active-strategy');
-//       $('.main-e-participate .js-strategy').removeClass('active-strategy')
-//   }, function() {
-//       //$('.main-e-participate .js-strategy').removeClass('active-strategy');
-//   });
-// }
+
+// Handling alula feature card wrap click
+
+function handleAlulaFeatureCardClick () {
+  $('.js-sec-alula-features .js-card-wrap').click(function (){
+    $('.js-sec-alula-features .js-card-wrap').removeClass('card-wrap-active');
+    $(this).addClass('card-wrap-active');
+  });
+
+  $('.js-sec-alula-features .js-card-wrap').hover(
+    function(){
+      $('.js-sec-alula-features .js-card-wrap').removeClass('card-wrap-active');
+      $(this).addClass('card-wrap-active');
+    }
+  );
+}
+
