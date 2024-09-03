@@ -138,17 +138,35 @@
                         }
 
                         .card-wrap-content {
-                            margin: 0 0 0 46.901%;
+                            // margin: 0 0 0 46.901%;
                             color: $baselineSecondary;
                             visibility: hidden;
+                            display: flex;
+                            justify-content: end;
 
-                            @media #{$vpTablet991} {
-                                margin-left: 45.901%;
+                            .body1 {
+                                flex: 0 0 53.391%;
+                                max-width: 53.391%;
+                                display: -webkit-box;
+                                line-clamp: 2;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+
+                                @media #{$vpTablet1024} {
+                                    flex: 0 0 100%;
+                                    max-width: 100%;
+                                }
                             }
 
-                            @media #{$vpMobile600} {
-                                margin-left: 0;
-                            }
+                            // @media #{$vpTablet991} {
+                            //     margin-left: 45.901%;
+                            // }
+
+                            // @media #{$vpMobile600} {
+                            //     margin-left: 0;
+                            // }
                         }
                     }
                 }
