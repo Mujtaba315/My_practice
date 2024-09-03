@@ -47,37 +47,19 @@
                     border-radius: 2rem;
                     border: .06rem solid $white;
 
+                    @media #{$vpMobile600} {
+                        border-radius: 1rem;
+                    }
+
                     .card-wrap {
                         color: $white;
                         padding: 2rem;
                         border-radius: 2rem;
 
-                        // &:hover {
-                        //     background-color: $white;
-
-                        //     .card-wrap-header {
-                        //         color: $baselinePrimary;
-
-                        //         .card-header-link {
-
-                        //             .card-header-arrow {
-
-                        //                 path {
-                        //                     stroke: $baselinePrimary;
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-
-                        //     .card-wrap-title {
-                        //         color: $tertiaryColor;
-                        //     }
-
-                        //     .card-wrap-content {
-                        //         margin-top: 2.5rem;
-                        //         visibility: visible;
-                        //     }
-                        // }
+                        @media #{$vpMobile600} {
+                            padding: 1.25rem;
+                            border-radius: 1rem;
+                        }
 
                         &.card-wrap-active {
                             background-color: $white;
@@ -141,9 +123,19 @@
                                 height: 1.5rem;
                                 width: 1.5rem;
 
+                                @media #{$vpMobile600} {
+                                    height: 1rem;
+                                    width: 1rem;
+                                }
+
                                 .card-header-arrow {
                                     height: 1.5rem;
                                     width: 1.5rem;
+
+                                    @media #{$vpMobile600} {
+                                        height: 1rem;
+                                        width: 1rem;
+                                    }
                                 }
                             }
                         }
