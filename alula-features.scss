@@ -38,6 +38,11 @@
                 flex: 0 0 66.25%;
                 max-width: 66.25%;
 
+                @media #{$vpTablet991} {
+                    flex: 0 0 61.25%;
+                    max-width: 61.25%;
+                }
+
                 @media #{$vpMobile600} {
                     flex: 0 0 100%;
                     max-width: 100%;
@@ -55,6 +60,10 @@
                         color: $white;
                         padding: 2rem;
                         border-radius: 2rem;
+
+                        @media #{$vpTablet991} {
+                            padding: 1.5rem;
+                        }
 
                         @media #{$vpMobile600} {
                             padding: 1.25rem;
@@ -144,6 +153,10 @@
                             margin: 0 0 0 46.901%;
                             color: $baselineSecondary;
                             visibility: hidden;
+
+                            @media #{$vpTablet991} {
+                                margin-left: 45.901%;
+                            }
 
                             @media #{$vpMobile600} {
                                 margin-left: 0;
