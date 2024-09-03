@@ -95,6 +95,10 @@
                             .card-wrap-content {
                                 margin-top: 2.5rem;
                                 visibility: visible;
+
+                                .body1 {
+                                    margin: 0 0 .625rem 0;
+                                }
                             }
                         }
 
@@ -149,6 +153,7 @@
                             visibility: hidden;
                             display: flex;
                             justify-content: end;
+                            margin-top: .625rem;
 
                             .body1 {
                                 flex: 0 0 53.391%;
