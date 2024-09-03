@@ -112,18 +112,6 @@
                             border-top: .06rem solid $white;
                         }
 
-                        // &:last-of-type {
-
-                        //     &.card-wrap-active {
-
-                        //         &:has(+ .card-wrap:last-of-type) {
-                        //             border-top: .06rem solid $white;
-                        //         }
-                        //     }
-                        // }
-
-
-
                         .card-wrap-header {
                             display: flex;
                             justify-content: space-between;
@@ -189,7 +177,11 @@
             .alula-features-bg-video {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: fill;
+
+                @media #{$vpMobile600} {
+                    object-fit: cover;
+                }
             }
         }
     }
