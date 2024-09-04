@@ -931,6 +931,9 @@ $(document).ready(function () {
 
   // Calling strategic initiatives slider category link click handler
   handleInitiativesCategoryClick ();
+
+  // calling Initializing strategic initiatives slick slider
+  initInitiativeSlider ();
 });
 
 function intlTelInputInit() {
@@ -6213,26 +6216,26 @@ function cardSlickSlider () {
     $(this).addClass('active-category-btn');
   });
 
-  $('.js-prev-btn').click(function () {
-    $('.js-btns-wrapper').slick("slickPrev");
+  $('.js-data-library .js-prev-btn').click(function () {
+    $('.js-data-library .js-btns-wrapper').slick("slickPrev");
   });
   
-  $('.js-next-btn').click(function () {
-    $('.js-btns-wrapper').slick("slickNext");
+  $('.js-data-library .js-next-btn').click(function () {
+    $('.js-data-library .js-btns-wrapper').slick("slickNext");
   });
   
-  $(".js-prev-btn").addClass("prev-btn-disable");
+  $(".js-data-library .js-prev-btn").addClass("prev-btn-disable");
   
   $(".js-data-library .js-btns-wrapper").on("afterChange", function () {
     if ($(".js-data-library .slick-prev").hasClass("slick-disabled")) {
-      $(".js-prev-btn").addClass("prev-btn-disable");
+      $(".js-data-library .js-prev-btn").addClass("prev-btn-disable");
     } else {
-      $(".js-prev-btn").removeClass("prev-btn-disable");
+      $(".js-data-library .js-prev-btn").removeClass("prev-btn-disable");
     }
     if ($(".js-data-library .slick-next").hasClass("slick-disabled")) {
-      $(".js-next-btn").addClass("next-btn-disable");
+      $(".js-data-library .js-next-btn").addClass("next-btn-disable");
     } else {
-      $(".js-next-btn").removeClass("next-btn-disable");
+      $(".js-data-library .js-next-btn").removeClass("next-btn-disable");
     }
   });
 
@@ -6480,5 +6483,39 @@ function handleInitiativesCategoryClick () {
   $('.js-sec-strategic-initiatives .js-slider-category-link').click(function (){
     $('.js-sec-strategic-initiatives .js-slider-category-link').removeClass('active-slider-category-link');
     $(this).addClass('active-slider-category-link');
+  });
+}
+
+// Initializing strategic initiatives slick slider
+
+function initInitiativeSlider () {
+  $('.js-sec-strategic-initiatives .js-slider').slick({
+    infinite: false,
+    // speed: 500,
+    fade: true
+    // cssEase: 'linear'
+  });
+
+  $('.js-sec-strategic-initiatives .js-prev-arrow').click(function () {
+    $('.js-sec-strategic-initiatives .js-slider').slick("slickPrev");
+  });
+  
+  $('.js-sec-strategic-initiatives .js-next-arrow').click(function () {
+    $('.js-sec-strategic-initiatives .js-slider').slick("slickNext");
+  });
+  
+  $(".js-sec-strategic-initiatives .js-prev-arrow").addClass("btn-disable");
+  
+  $(".js-sec-strategic-initiatives .js-slider").on("afterChange", function () {
+    if ($(".js-sec-strategic-initiatives .slick-prev").hasClass("slick-disabled")) {
+      $(".js-sec-strategic-initiatives .js-prev-arrow").addClass("btn-disable");
+    } else {
+      $(".js-sec-strategic-initiatives .js-prev-arrow").removeClass("btn-disable");
+    }
+    if ($(".js-sec-strategic-initiatives .slick-next").hasClass("slick-disabled")) {
+      $(".js-sec-strategic-initiatives .js-next-arrow").addClass("btn-disable");
+    } else {
+      $(".js-sec-strategic-initiatives .js-next-arrow").removeClass("btn-disable");
+    }
   });
 }
