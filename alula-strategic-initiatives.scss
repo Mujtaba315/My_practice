@@ -10,6 +10,7 @@
 
         .content-wrapper {
             display: flex;
+            justify-content: space-between;
 
             .left-content-wrapper {
                 flex: 0 0 49.405%;
@@ -79,6 +80,67 @@
                         .view-all-link {
                             display: inline-block;
                             margin-top: 2.5rem;
+                        }
+                    }
+                }
+            }
+
+            .right-content-wrapper {
+                flex: 0 0 40.953%;
+                max-width: 40.953%;
+
+                .slider-wrapper {
+
+                    .slider-pane {
+
+                        .slider {
+
+                            .slider-items-wrapper {
+
+                                .slider-item {
+                                    position: relative;
+                                    border-radius: 1rem;
+                                    overflow: hidden;
+
+                                    .slide-image {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        max-height: 30rem;
+                                    }
+
+                                    .overlay {
+                                        position: absolute;
+                                        top: 0;
+                                        height: 100%;
+                                        width: 100%;
+                                        opacity: .4;
+                                        z-index: 1;
+                                        background-color: $black;
+                                        display: block;
+                                    }
+
+                                    .slide-content {
+                                        position: absolute;
+                                        top: 0;
+                                        height: 100%;
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: end;
+                                        padding: 1.5rem;
+
+                                        .heading5 {
+                                            z-index: 2;
+                                        }
+
+                                        .main-primary-btn {
+                                            z-index: 3;
+                                            padding: .75rem 2.188rem;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
