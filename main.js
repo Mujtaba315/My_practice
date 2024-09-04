@@ -928,6 +928,9 @@ $(document).ready(function () {
 
   // Calling alula feature card wrap click handler
   handleAlulaFeatureCardClick ();
+
+  // Calling strategic initiatives slider category link click handler
+  handleInitiativesCategoryClick ();
 });
 
 function intlTelInputInit() {
@@ -6469,3 +6472,13 @@ function handleAlulaFeatureCardClick () {
   );
 }
 
+
+
+// Handling strategic initiatives slider category link click
+
+function handleInitiativesCategoryClick () {
+  $('.js-sec-strategic-initiatives .js-slider-category-link').click(function (){
+    $('.js-sec-strategic-initiatives .js-slider-category-link').removeClass('active-slider-category-link');
+    $(this).addClass('active-slider-category-link');
+  });
+}
