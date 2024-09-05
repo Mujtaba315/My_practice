@@ -6489,6 +6489,24 @@ function handleInitiativesCategoryClick () {
 // Initializing strategic initiatives slick slider
 
 function initInitiativeSlider () {
+
+  //Update pagination on reload
+  $(".js-sec-strategic-initiatives .js-slider").on('init', function (event, slick, currentSlide, nextSlide){
+    let currentPage = slick.currentSlide + 1;
+    if (currentPage < 10) {
+      $('.js-sec-strategic-initiatives .js-current-slide').text("0" + currentPage);
+    } else {
+      $('.js-sec-strategic-initiatives .js-current-slide').text(currentPage);
+    }
+
+    let totalPages = slick.slideCount;
+    if (totalPages < 10) {
+      $('.js-sec-strategic-initiatives .js-total-slides').text("0" + totalPages);
+    } else {
+      $('.js-sec-strategic-initiatives .js-total-slides').text(totalPages);
+    }
+  });
+
   $('.js-sec-strategic-initiatives .js-slider').slick({
     infinite: false,
     // speed: 500,
@@ -6506,7 +6524,13 @@ function initInitiativeSlider () {
   
   $(".js-sec-strategic-initiatives .js-prev-arrow").addClass("btn-disable");
   
-  $(".js-sec-strategic-initiatives .js-slider").on("afterChange", function () {
+  
+  $(".js-sec-strategic-initiatives .js-slider").on("afterChange", function (event, slick) {
+    // console.log(slick.slideCount);
+    // console.log(slick.currentSlide);
+
+    // $('.js-sec-strategic-initiatives .js-current-slide').text(slick.currentSlide + 1);
+    
     if ($(".js-sec-strategic-initiatives .slick-prev").hasClass("slick-disabled")) {
       $(".js-sec-strategic-initiatives .js-prev-arrow").addClass("btn-disable");
     } else {
@@ -6516,6 +6540,24 @@ function initInitiativeSlider () {
       $(".js-sec-strategic-initiatives .js-next-arrow").addClass("btn-disable");
     } else {
       $(".js-sec-strategic-initiatives .js-next-arrow").removeClass("btn-disable");
+    }
+  });
+
+  $(".js-sec-strategic-initiatives .js-slider").on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+    // $('.js-sec-strategic-initiatives .js-current-slide').text(nextSlide + 1);
+    // $('.js-sec-strategic-initiatives .js-total-slides').text(slick.slideCount);
+    let currentPage = nextSlide + 1;
+    if (currentPage < 10) {
+      $('.js-sec-strategic-initiatives .js-current-slide').text("0" + currentPage);
+    } else {
+      $('.js-sec-strategic-initiatives .js-current-slide').text(currentPage);
+    }
+
+    let totalPages = slick.slideCount;
+    if (totalPages < 10) {
+      $('.js-sec-strategic-initiatives .js-total-slides').text("0" + totalPages);
+    } else {
+      $('.js-sec-strategic-initiatives .js-total-slides').text(totalPages);
     }
   });
 }
