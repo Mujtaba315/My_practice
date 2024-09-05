@@ -6514,6 +6514,8 @@ function initInitiativeSlider () {
   });
 
   $('.js-sec-strategic-initiatives .active-slider-pane .js-slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
     infinite: false,
     // speed: 500,
     fade: true
