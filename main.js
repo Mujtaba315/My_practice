@@ -6504,7 +6504,6 @@ function initInitiativeSlider () {
     // }
 
     let totalPages = $('.js-sec-strategic-initiatives .active-slider-pane .slider-items-wrapper').length;
-    console.log(totalPages);
     
     if (totalPages < 10) {
       $('.js-sec-strategic-initiatives .active-slider-pane .js-total-slides').text("0" + totalPages);
@@ -6532,13 +6531,21 @@ function initInitiativeSlider () {
   
   $(".js-sec-strategic-initiatives .active-slider-pane .js-prev-arrow").addClass("btn-disable");
   
-  
+  $('.js-sec-strategic-initiatives .active-slider-pane .slick-active + .slick-slide').addClass('upcoming-slide');
+
   $(".js-sec-strategic-initiatives .active-slider-pane .js-slider").on("afterChange", function (event, slick) {
     // console.log(slick.slideCount);
     // console.log(slick.currentSlide);
 
     // $('.js-sec-strategic-initiatives .js-current-slide').text(slick.currentSlide + 1);
+
+    $('.js-sec-strategic-initiatives .active-slider-pane .slick-slide').removeClass('upcoming-slide');
+    $('.js-sec-strategic-initiatives .active-slider-pane .slick-active + .slick-slide').addClass('upcoming-slide');
     
+    if ( slick.currentSlide === slick.slideCount -1 ) {
+      $('.js-sec-strategic-initiatives .active-slider-pane .slider-items-wrapper:first-of-type').addClass('upcoming-slide');
+    }
+
     if ($(".js-sec-strategic-initiatives .active-slider-pane .slick-prev").hasClass("slick-disabled")) {
       $(".js-sec-strategic-initiatives .active-slider-pane .js-prev-arrow").addClass("btn-disable");
     } else {
