@@ -33,12 +33,63 @@
 
                 .slider-categories-wrapper {
 
+                    @media #{$vpMobile600} {
+                        position: relative;
+                    }
+
+                    .dropdown-btn-wrapper {
+                        align-items: center;
+                        width: max-content;
+                        column-gap: .75rem;
+                        border-bottom: .06rem solid $baselinePrimary;
+                        margin-top: 2.5rem;
+                        display: none;
+
+                        @media #{$vpMobile600} {
+                            display: flex;
+                        }
+
+                        .dropdown-arrow {
+                            height: 1.5rem;
+                            width: 1rem;
+
+                            g {
+
+                                path {
+                                    fill: $baselineSecondary;
+                                }
+                            }
+                        }
+                    }
+
                     .slider-categories {
+
+                        @media #{$vpMobile600} {
+                            height: 0; 
+                            opacity: 0; 
+                            visibility: hidden; 
+                            // transition: all .35s ease; 
+                            position: absolute;
+                            z-index: 5;
+                            background-color: $baselineSecondaryLight;
+                            border-radius: .5rem;
+                            padding: 1rem;
+
+                            &.active-slider-dropdown {
+                                height: max-content;
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
 
                         .slider-category {
 
                             &:not(:last-of-type) {
                                 padding-bottom: 1.5rem;
+
+                                @media #{$vpMobile600} {
+                                    padding-bottom: .5rem;
+                                }
                             }
 
                             .slider-category-link {
@@ -47,6 +98,10 @@
                                 position: relative;
                                 transition: all .35s ease;
                                 cursor: pointer;
+
+                                @media #{$vpMobile600} {
+                                    font-size: 1rem;
+                                }
 
                                 &::after {
                                     content: "";
@@ -121,6 +176,7 @@
                 @media #{$vpMobile600} {
                     flex: 0 0 100%;
                     max-width: 100%;
+                    margin-top: 2.5rem;
                 }
 
                 .slider-wrapper {
@@ -261,10 +317,26 @@
                                     }
                                 }
                             }
+
+                            .slick-dots {
+
+                                li {
+                                    &:not(:last-of-type){
+                                        .custom-pagination-dot {
+                                            margin-right: 1rem;
+                                        }
+                                    }
+                                }
+                            }
                         }
 
                         .arrow-btns-and-pagination {
                             margin-top: 3rem;
+
+                            @media #{$vpMobile600} {
+                                display: none;
+                            }
+
 
                             .arrows-pagination-content-wrapper {
                                 display: flex;

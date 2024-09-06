@@ -934,6 +934,9 @@ $(document).ready(function () {
 
   // calling Initializing strategic initiatives slick slider
   initInitiativeSlider ();
+
+  // calling open / close slider category dropdown
+  openCloseSliderDropdown ();
 });
 
 function intlTelInputInit() {
@@ -6480,7 +6483,16 @@ function handleAlulaFeatureCardClick () {
 // Handling strategic initiatives slider category link click
 
 function handleInitiativesCategoryClick () {
-  $('.js-sec-strategic-initiatives .js-slider-category-link').click(function (){
+  $('.js-sec-strategic-initiatives .js-slider-category-link').click(function (e){
+    
+    e.stopPropagation();
+
+    // on mob closing dropdown on category click
+    $('.js-sec-strategic-initiatives .js-slider-categories').removeClass('active-slider-dropdown');
+    
+    // on mob updating text of slider dropdwon btn on category click
+    $('.js-sec-strategic-initiatives .js-dropdown-btn').html($(this).html());
+    
     $('.js-sec-strategic-initiatives .js-slider-category-link').removeClass('active-slider-category-link');
     $(this).addClass('active-slider-category-link');
     let linkId = $(this).attr('id');
@@ -6516,9 +6528,16 @@ function initInitiativeSlider () {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,
-    // speed: 500,
-    fade: true
-    // cssEase: 'linear'
+    fade: true,
+    responsive:[{
+      breakpoint:601,
+      settings: {
+        dots: true,
+        customPaging : function(i) {
+          return '<div class="custom-pagination-dot"></div>';
+        }
+      }
+    }]
   });
 
   $('.js-sec-strategic-initiatives .active-slider-pane .js-prev-arrow').click(function () {
@@ -6576,3 +6595,25 @@ function initInitiativeSlider () {
     }
   });
 }
+
+
+// open / close slider category dropdown
+
+function openCloseSliderDropdown () {
+  $('.js-sec-strategic-initiatives .js-dropdown-btn-wrapper').click(function (e){
+    e.stopPropagation();
+    $('.js-sec-strategic-initiatives .js-slider-categories').toggleClass('active-slider-dropdown');
+  });
+
+  //closing dropdown on click any where except itself
+  $(document).click(function () {
+    $('.js-sec-strategic-initiatives .js-slider-categories').removeClass('active-slider-dropdown');
+  });
+
+  $('.js-sec-strategic-initiatives .js-slider-categories').click(function (e) {
+    e.stopPropagation();
+    $(this).addClass('active-slider-dropdown');
+  });
+}
+
+
