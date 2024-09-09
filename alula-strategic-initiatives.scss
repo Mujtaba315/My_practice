@@ -9,6 +9,10 @@
 
             @media #{$vpMobile600} {
                 padding-bottom: 0.375rem;
+                
+                .body2 {
+                    font-size: 1.125rem;
+                }
             }
         }
 
@@ -319,6 +323,7 @@
                             }
 
                             .slick-dots {
+                                margin-top: 2rem;
 
                                 li {
                                     &:not(:last-of-type){
