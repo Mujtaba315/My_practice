@@ -177,8 +177,36 @@
       // }
       [data-star-rating] {
 
+        .gl-active {
+
+          .gl-star-full {
+            fill: #9F8332;
+            stroke: #9F8332;            
+          }
+        }
+
         .gl-star-rating--stars {
           column-gap: .5rem;
+
+          &[class*=" s"] {
+
+            > span {
+              background-image: url('../img/icon/star-1.svg') !important;
+              
+              &.gl-active {
+                  background-image: url('../img/icon/star-full.svg') !important;                  
+                &.gl-selected {
+                  background-image: url('../img/icon/star-full.svg') !important;                  
+                }
+              }
+            }
+          }
+          
+          > span {
+            height: 1.5rem;
+            width: 1.5rem;
+          }
+            
         }
       }
     }
